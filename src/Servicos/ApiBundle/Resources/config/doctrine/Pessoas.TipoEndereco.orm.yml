@@ -1,0 +1,38 @@
+Servicos\ApiBundle\Entity\Pessoas\TipoEndereco:
+    type: entity
+    table: pessoas.tipo_endereco
+    id:
+        tipoendeCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: tipoende_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        pessTipo:
+            type: tipo_pessoa
+            nullable: false
+            column: pess_tipo
+        tipoendeNome:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: tipoende_nome
+        tipoendeAtivo:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+            column: tipoende_ativo
+        tipoendeRemovido:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+            column: tipoende_removido
+    lifecycleCallbacks: {  }

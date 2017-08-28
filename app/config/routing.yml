@@ -1,0 +1,8 @@
+servicos_api:
+    type: rest
+    resource: "@ServicosApiBundle/Resources/config/routing.yml"
+    prefix: /api
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

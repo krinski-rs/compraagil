@@ -1,0 +1,5 @@
+services:
+    servicos_api.permissoes.grupos.criar:
+        class: Servicos\ApiBundle\Service\Permissoes\Grupos\Criar
+        lazy: true
+        arguments: ["@doctrine"]

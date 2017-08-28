@@ -1,0 +1,62 @@
+Servicos\ApiBundle\Entity\Localidades\Estado:
+    type: entity
+    table: localidades.estado
+    indexes:
+        IDX_B378999CA23CF7CC:
+            columns:
+                - pais_codigoid
+    id:
+        estaCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: esta_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        estaNome:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: esta_nome
+        estaAcronimo:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
+            column: esta_acronimo
+        estaCodigoDiscagem:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+            column: esta_codigo_discagem
+        estaPoligono:
+            type: polygon
+            nullable: true
+            requireSQLConversion: true
+            column: esta_poligono
+        estaDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: esta_datacadastro
+    manyToOne:
+        paisCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Localidades\Pais
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                pais_codigoid:
+                    referencedColumnName: pais_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

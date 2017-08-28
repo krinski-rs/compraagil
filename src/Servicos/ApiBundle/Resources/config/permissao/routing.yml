@@ -1,0 +1,12 @@
+servicos_api_permissoes_grupo:
+    type:     rest
+    resource: Servicos\ApiBundle\Controller\Permissoes\GruposController
+    name_prefix:  grup_
+servicos_api_permissoes_usuario:
+    type:     rest
+    resource: Servicos\ApiBundle\Controller\Permissoes\UsuariosController
+    name_prefix:  usua_
+servicos_api_permissoes_permissao:
+    type:     rest
+    resource: Servicos\ApiBundle\Controller\Permissoes\PermissoesController
+    name_prefix:  perm_

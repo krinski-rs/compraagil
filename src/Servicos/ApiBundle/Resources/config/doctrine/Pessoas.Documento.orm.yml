@@ -1,0 +1,66 @@
+Servicos\ApiBundle\Entity\Pessoas\Documento:
+    type: entity
+    table: pessoas.documento
+    indexes:
+        IDX_93F45BE0ED6350FC:
+            columns:
+                - pess_codigoid
+        IDX_93F45BE0390AFCF4:
+            columns:
+                - tipodocu_codigoid
+    uniqueConstraints:
+        tipodocu_unique:
+            columns:
+                - pess_codigoid
+                - tipodocu_codigoid
+    id:
+        docuCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: docu_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        docuAtivo:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+            column: docu_ativo
+        docuRemovido:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+            column: docu_removido
+        docuDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: docu_datacadastro
+    manyToOne:
+        pessCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Pessoas\Pessoa
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                pess_codigoid:
+                    referencedColumnName: pess_codigoid
+            orphanRemoval: false
+        tipodocuCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Pessoas\TipoDocumento
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tipodocu_codigoid:
+                    referencedColumnName: tipodocu_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

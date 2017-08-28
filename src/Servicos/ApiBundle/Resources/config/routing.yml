@@ -1,0 +1,4 @@
+servicos_api_permissoes:
+    type:     rest
+    resource: "@ServicosApiBundle/Resources/config/permissao/routing.yml"
+    prefix: /acesso

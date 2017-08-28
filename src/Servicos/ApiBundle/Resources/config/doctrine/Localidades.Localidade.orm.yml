@@ -1,0 +1,73 @@
+Servicos\ApiBundle\Entity\Localidades\Localidade:
+    type: entity
+    table: localidades.localidade
+    indexes:
+        IDX_F30A3CD0453257F4:
+            columns:
+                - cida_codigoid
+    id:
+        locaCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: loca_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        cidaCnlAcronimo:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: cida_cnl_acronimo
+        locaCnlCodigo:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: loca_cnl_codigo
+        cidaCnlAcronimoLocal:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: cida_cnl_acronimo_local
+        locaCnlCodigoLocal:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: loca_cnl_codigo_local
+        locaCnlCodigoLocal2:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: loca_cnl_codigo_local2
+        locaPoligono:
+            type: polygon
+            nullable: true
+            requireSQLConversion: true
+            column: loca_poligono
+        locaDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: loca_datacadastro
+    manyToOne:
+        cidaCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Localidades\Cidade
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cida_codigoid:
+                    referencedColumnName: cida_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,52 @@
+Servicos\ApiBundle\Entity\Permissoes\Permissao:
+    type: entity
+    table: permissoes.permissao
+    id:
+        permCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: perm_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        permNome:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: perm_nome
+        permDescricao:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+            column: perm_descricao
+        permDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: perm_datacadastro
+    manyToMany:
+        grupCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Permissoes\Grupo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: permCodigoid
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        usuaCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Permissoes\Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: permCodigoid
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,2 @@
+imports:
+    - { resource: /var/www/vogel.local/src/Servicos/ApiBundle/Resources/config/permissao/services.yml }

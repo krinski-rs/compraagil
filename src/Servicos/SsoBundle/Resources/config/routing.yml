@@ -1,0 +1,3 @@
+servicos_sso_homepage:
+    path:     /
+    defaults: { _controller: ServicosSsoBundle:Default:index }

@@ -76,7 +76,7 @@ class GruposController extends RestController
                 throw new \Exception('Class "Servicos\ApiBundle\Service\Permissoes\Grupos\Criar" not found.', 500);
             }
             
-            $objPermissoesGrupos->validate($objParamFetcher);
+            $objPermissoesGrupos->save($objParamFetcher);
             
             return $this->success(
                 ['msg'=>'postGrupoAction']

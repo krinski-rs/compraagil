@@ -6,7 +6,8 @@ use FOS\RestBundle\Controller\Annotations\RequestParam;
 use Servicos\ApiBundle\Strategy\StrategyInterface;
 use Doctrine\ORM\QueryBuilder;
 
-class CriarStrategy extends StrategyAbstract{
+class CriarStrategy extends StrategyAbstract
+{
     public function createRequestParam():StrategyInterface
     {
         $objRequestParam = new RequestParam();

@@ -1,4 +1,6 @@
 services:
-#    servicos_sso.example:
-#        class: Servicos\SsoBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    auth.sso:
+        class: Servicos\SsoBundle\Service\Auth\Sso
+        arguments: ["@service_container", "%cors%"]
+        calls:
+            - [setRequestStack, ["@request_stack"]]

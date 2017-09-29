@@ -1,7 +1,7 @@
 servicos_sso:
     type: rest
     resource: "@ServicosSsoBundle/Resources/config/routing.yml"
-    prefix:   /sso
+    prefix:   /auth
 
 servicos_api:
     type: rest

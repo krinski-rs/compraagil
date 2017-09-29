@@ -1,3 +1,5 @@
-servicos_sso_homepage:
-    path:     /
-    defaults: { _controller: ServicosSsoBundle:Default:index }
+sso_login:
+    type:     rest
+    resource: Servicos\SsoBundle\Controller\AuthController
+    name_prefix:  auth_
+    

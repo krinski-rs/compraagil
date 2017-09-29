@@ -94,5 +94,4 @@ abstract class SsoAbstract implements SsoInterface {
         }
         return array();
     }
-    
 }

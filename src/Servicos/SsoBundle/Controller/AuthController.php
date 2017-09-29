@@ -51,7 +51,6 @@ class AuthController extends RestController
         }
     }
     
-    
     /**
      * @Get("/me")
      */

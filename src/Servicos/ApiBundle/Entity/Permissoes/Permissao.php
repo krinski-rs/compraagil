@@ -196,4 +196,3 @@ class Permissao
         return $this->usuaCodigoid;
     }
 }
-

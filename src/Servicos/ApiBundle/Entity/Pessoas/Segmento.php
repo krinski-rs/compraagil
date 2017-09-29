@@ -168,4 +168,3 @@ class Segmento
         return $this->segmDatacadastro;
     }
 }
-

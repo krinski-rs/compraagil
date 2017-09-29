@@ -196,4 +196,3 @@ class Grupo
         return $this->permCodigoid;
     }
 }
-

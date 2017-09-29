@@ -45,6 +45,12 @@ Servicos\ApiBundle\Entity\Permissoes\Usuario:
             options:
                 default: now()
             column: data_cadastro
+        email:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
     manyToMany:
         grupCodigoid:
             targetEntity: Servicos\ApiBundle\Entity\Permissoes\Grupo

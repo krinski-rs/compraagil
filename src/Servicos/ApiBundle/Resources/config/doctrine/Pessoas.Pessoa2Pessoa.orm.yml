@@ -11,13 +11,7 @@ Servicos\ApiBundle\Entity\Pessoas\Pessoa2Pessoa:
         IDX_DB46491C7A62B8C6:
             columns:
                 - tiporela_codigoid
-    id:
-        pessMandatario:
-            associationKey: true
-        pessSubordinado:
-            associationKey: true
-        tiporelaCodigoid:
-            associationKey: true
+    id: {  }
     fields:
         pess2pessAtivo:
             type: boolean

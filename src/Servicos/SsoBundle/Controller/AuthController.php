@@ -8,7 +8,6 @@ use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Delete;
 use FOS\RestBundle\Controller\Annotations\Get;
 use Servicos\SsoBundle\Service\Auth\Sso;
-use Symfony\Component\HttpFoundation\Request;
 
 class AuthController extends RestController
 {

@@ -1,0 +1,12 @@
+app_login:
+    path:     /login
+    defaults: { _controller: "AppBundle:Default:login" }
+    methods:  [GET]
+    
+app_login_check:
+    path:     /login_check
+    defaults: { _controller: "AppBundle:Default:loginCheckAction" }
+    
+app_logout:
+    path:     /login_check
+    defaults: { _controller: "AppBundle:Default:logoutAction" }

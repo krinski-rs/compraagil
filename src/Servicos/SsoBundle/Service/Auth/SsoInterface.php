@@ -10,9 +10,7 @@ interface SsoInterface {
     public function isLoggedIn():bool;
     
     public function login(ParamFetcher $objParamFetcher):array;
-    
-    public function logout():bool;
-    
+        
     public function invalidate():bool;
     
     public function getUserSession():Session;

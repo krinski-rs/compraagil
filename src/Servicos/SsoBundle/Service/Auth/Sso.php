@@ -20,18 +20,6 @@ class Sso extends SsoAbstract
         }
     }
     
-    public function logout():bool
-    {
-        try {
-            if($this->isLoggedIn()){
-                $this->invalidate();
-            }
-        } catch (\Exception $ex){
-            throw $ex;
-        }
-        return true;
-    }
-    
     public function validate(ParamFetcher $objParamFetcher):bool
     {
         try {

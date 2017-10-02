@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.8.2" last-position="0,147" last-zoom="0.35"
+<dbmodel pgmodeler-ver="0.8.2" last-position="760,1685" last-zoom="1.1"
 	 default-schema="public" default-owner="postgres">
 <role name="rfreitas"
       superuser="true"
@@ -545,7 +545,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="grupo">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="1270.22" y="1626.57"/>
+	<position x="953.169" y="1593.84"/>
 	<column name="grup_codigoid" not-null="true" sequence="permissoes.grupo_grup_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -574,7 +574,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="permissao">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="403.415" y="1763.71"/>
+	<position x="98.1818" y="1740.07"/>
 	<column name="perm_codigoid" not-null="true" sequence="permissoes.permissao_perm_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -595,7 +595,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="grupo_permissao">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="803.324" y="1480.86"/>
+	<position x="498.091" y="1457.22"/>
 	<column name="perm_codigoid" not-null="true">
 		<type name="integer"/>
 	</column>
@@ -619,7 +619,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="usuario_permissao">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="870.529" y="1960.86"/>
+	<position x="565.296" y="1937.22"/>
 	<column name="usua_codigoid" not-null="true">
 		<type name="integer"/>
 	</column>
@@ -643,7 +643,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="usuario_grupo">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="1744.5" y="1483.71"/>
+	<position x="1439.27" y="1460.07"/>
 	<column name="usua_codigoid" not-null="true">
 		<type name="integer"/>
 	</column>
@@ -661,7 +661,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="usuario">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="1735.94" y="1958.83"/>
+	<position x="1430.71" y="1935.19"/>
 	<column name="id" not-null="true" sequence="permissoes.usuario_id_seq">
 		<type name="integer"/>
 	</column>

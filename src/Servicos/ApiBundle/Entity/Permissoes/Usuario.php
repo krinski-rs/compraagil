@@ -319,6 +319,12 @@ class Usuario implements UserInterface
         return [];
     }
     
+    public function setRole($role = null)
+    {
+        $this->role = $role;
+    }
+    
+    
     public function eraseCredentials()
     {
         return null;

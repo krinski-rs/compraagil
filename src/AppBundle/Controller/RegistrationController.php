@@ -1,9 +1,6 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\User;
-use AppBundle\Form\UserType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Servicos\ApiBundle\Entity\Permissoes\Usuario;
@@ -15,6 +12,7 @@ class RegistrationController extends Controller
     {
         // Create a new blank user and process the form
         $user = new Usuario();
+        $user->setSalt(uniqid(mt_rand()));
         $form = $this->createForm(UsuarioType::class, $user);
         $form->handleRequest($request);
         
@@ -22,6 +20,7 @@ class RegistrationController extends Controller
             // Encode the new users password
             $encoder = $this->get('security.password_encoder');
             $password = $encoder->encodePassword($user, $user->getPassword());
+            $user->setDataCadastro(new \DateTime());
             $user->setPassword($password);
             
             // Set their role
@@ -32,7 +31,7 @@ class RegistrationController extends Controller
             $em->persist($user);
             $em->flush();
             
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('app_login');
         }
         
         return $this->render('auth/register.html.twig', [

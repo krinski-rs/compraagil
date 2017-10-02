@@ -1,6 +1,7 @@
 Servicos\ApiBundle\Entity\Permissoes\Usuario:
     type: entity
     table: permissoes.usuario
+    repositoryClass: Servicos\ApiBundle\Repository\Permissoes\UsuarioRepository
     id:
         id:
             type: integer

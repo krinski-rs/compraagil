@@ -15,3 +15,7 @@ app_regitration:
     path:     /register
     defaults: { _controller: "AppBundle:Registration:register" }
     
+app_welcome:
+    path:     /welcome
+    defaults: { _controller: "AppBundle:Index:welcome" }
+    

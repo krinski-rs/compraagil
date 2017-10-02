@@ -26,17 +26,21 @@ class DefaultController extends Controller
 //             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
 //         ]);
         
-        
-        
         $helper = $this->get('security.authentication_utils');
         
         return $this->render(
             'auth/login.html.twig',
-            array(
+            [
+//                 'desktop' => [
+//                     'icons' => [],
+//                     'windows' => [],
+//                     'dock' => [],
+//                     'bar_top' => []
+//                 ]
                 'last_username' => $helper->getLastUsername(),
                 'error'         => $helper->getLastAuthenticationError(),
-            )
-            );
+            ]
+        );
         
     }
     

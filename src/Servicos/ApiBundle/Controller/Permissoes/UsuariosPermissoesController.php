@@ -4,7 +4,7 @@ namespace Servicos\ApiBundle\Controller\Permissoes;
 use FOS\RestBundle\Request\ParamFetcher;
 use Servicos\ApiBundle\Controller\RestController;
 use Servicos\ApiBundle\Exceptions\ApiException;
-use Servicos\ApiBundle\Service\Permissoes\Permissoes as ServicePermissoesPermissoes;
+use Servicos\ApiBundle\Service\Permissoes\Usuarios as ServicePermissoesUsuarios;
 
 /**
  *
@@ -13,7 +13,7 @@ use Servicos\ApiBundle\Service\Permissoes\Permissoes as ServicePermissoesPermiss
  * @author   Reinaldo Krinski <reinaldo.krinski@gmail.com>
  * @license  http://localhost proprietary
  */
-class PermissoesController extends RestController
+class UsuariosPermissoesController extends RestController
 {
     /**
      *
@@ -22,12 +22,12 @@ class PermissoesController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getPermissoeAction(int $id)
+    public function getPermissoeAction(int $usuaCodigoid, int $permCodigoid)
     {
         try {
             
             return $this->success(
-                ['msg'=>'getPermissoeAction']
+                ['msg'=>'getUsuarioPermissaoAction']
             );
         } catch (ApiException $ex) {
             return $this->buildResponse($ex->getStatusCode(), $ex->getDados());
@@ -43,12 +43,12 @@ class PermissoesController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getPermissoesAction(ParamFetcher $objParamFetcher)
+    public function getPermissoesAction(int $usuaCodigoid, ParamFetcher $objParamFetcher)
     {
         try {
             
             return $this->success(
-                ['msg'=>'getPermissoesAction']
+                ['msg'=>'getUsuariosPermissaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -68,44 +68,19 @@ class PermissoesController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function postPermissoeAction(ParamFetcher $objParamFetcher)
+    public function postPermissoeAction(int $usuaCodigoid, int $permCodigoid, ParamFetcher $objParamFetcher)
     {
+        
+        
         try {
-            $objPermissoesPermissoes = $this->get('servicos_api.permissoes.permissoes.criar');
-            if(!($objPermissoesPermissoes instanceof ServicePermissoesPermissoes\Criar)){
-                throw new \Exception('Class "Servicos\ApiBundle\Service\Permissoes\Permissoes\Criar" not found.', 500);
+            $objPermissoesUsuario = $this->get('servicos_api.permissoes.usuario.criar');
+            if(!($objPermissoesUsuario instanceof ServicePermissoesUsuarios\Criar)){
+                throw new \Exception('Class "Servicos\ApiBundle\Service\Permissoes\Usuarios\Criar" not found.', 500);
             }
-            
-            $objPermissoesPermissoes->save($objParamFetcher);
-            
-            return $this->success(
-                ['msg'=>'postPermissoesAction']
-                );
-        } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
-            return $this->badRequest(
-                [$ex->getParameter()->getName() => $ex->getMessage()]
-                );
-        } catch (ApiException $ex) {
-            return $this->badRequest($ex->getStatusCode(), $ex->getDados());
-        } catch (\Exception $ex) {
-            return $this->internalError($ex->getTraceAsString());
-        }
-    }
-
-    /**
-     *
-     * @param \FOS\RestBundle\Request\ParamFetcher $objParamFetcher
-     * @param int $id
-     *
-     * @access public
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
-    public function patchPermissoeAction(int $id, ParamFetcher $objParamFetcher)
-    {
-        try {
+            $objPermissoesUsuario->addPermissao($usuaCodigoid, $permCodigoid, $objParamFetcher);
             
             return $this->success(
-                ['msg'=>'patchPermissoeAction']
+                ['msg'=>'postUsuarioPermissaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -126,12 +101,38 @@ class PermissoesController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function putPermissoeAction(int $id, ParamFetcher $objParamFetcher)
+    public function patchPermissoeAction(int $usuaCodigoid, int $permCodigoid, ParamFetcher $objParamFetcher)
     {
         try {
             
             return $this->success(
-                ['msg'=>'putPermissoeAction']
+                ['msg'=>'patchUsuarioPermissaoAction']
+            );
+        } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
+            return $this->badRequest(
+                [$ex->getParameter()->getName() => $ex->getMessage()]
+            );
+        } catch (ApiException $ex) {
+            return $this->badRequest($ex->getStatusCode(), $ex->getDados());
+        } catch (\Exception $ex) {
+            return $this->internalError($ex->getTraceAsString());
+        }
+    }
+
+    /**
+     *
+     * @param \FOS\RestBundle\Request\ParamFetcher $objParamFetcher
+     * @param int $id
+     *
+     * @access public
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function putPermissoeAction(int $usuaCodigoid, int $permCodigoid, ParamFetcher $objParamFetcher)
+    {
+        try {
+            
+            return $this->success(
+                ['msg'=>'putUsuarioPermissaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -151,12 +152,12 @@ class PermissoesController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function deletePermissoeAction(int $id)
+    public function deletePermissoeAction(int $usuaCodigoid, int $permCodigoid)
     {
         try {
             
             return $this->success(
-                ['msg'=>'deletePermissoeAction']
+                ['msg'=>'deleteUsuarioPermissaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(

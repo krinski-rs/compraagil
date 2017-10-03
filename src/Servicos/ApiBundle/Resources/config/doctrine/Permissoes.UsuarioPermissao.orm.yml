@@ -1,0 +1,41 @@
+Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao:
+    type: entity
+    table: permissoes.usuario_permissao
+    id:
+        permCodigoid:
+            associationKey: true
+        usuaCodigoid:
+            associationKey: true
+    fields:
+        usuapermValor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: usuaperm_valor
+        usuapermDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: usuaperm_datacadastro
+    manyToOne:
+        permCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Permissoes\Permissao
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: usuarioPermissao
+            joinColumn:
+                name: perm_codigoid
+                referencedColumnName: perm_codigoid
+        usuaCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Permissoes\Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: usuarioPermissao
+            joinColumn:
+                name: usua_codigoid
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

@@ -52,6 +52,13 @@ Servicos\ApiBundle\Entity\Permissoes\Usuario:
             length: 255
             options:
                 fixed: false
+    oneToMany:
+        usuarioPermissao:
+            targetEntity: Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao
+            cascade:
+                - persist
+            fetch: LAZY
+            mappedBy: usuaCodigoid
     manyToMany:
         grupCodigoid:
             targetEntity: Servicos\ApiBundle\Entity\Permissoes\Grupo

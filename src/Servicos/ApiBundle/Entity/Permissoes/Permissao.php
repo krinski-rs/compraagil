@@ -30,6 +30,11 @@ class Permissao
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
+    private $usuarioPermissao;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
     private $grupCodigoid;
 
     /**
@@ -42,6 +47,7 @@ class Permissao
      */
     public function __construct()
     {
+        $this->usuarioPermissao = new \Doctrine\Common\Collections\ArrayCollection();
         $this->grupCodigoid = new \Doctrine\Common\Collections\ArrayCollection();
         $this->usuaCodigoid = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -129,6 +135,40 @@ class Permissao
     }
 
     /**
+     * Add usuarioPermissao
+     *
+     * @param \Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao $usuarioPermissao
+     *
+     * @return Permissao
+     */
+    public function addUsuarioPermissao(\Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao $usuarioPermissao)
+    {
+        $this->usuarioPermissao[] = $usuarioPermissao;
+
+        return $this;
+    }
+
+    /**
+     * Remove usuarioPermissao
+     *
+     * @param \Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao $usuarioPermissao
+     */
+    public function removeUsuarioPermissao(\Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao $usuarioPermissao)
+    {
+        $this->usuarioPermissao->removeElement($usuarioPermissao);
+    }
+
+    /**
+     * Get usuarioPermissao
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsuarioPermissao()
+    {
+        return $this->usuarioPermissao;
+    }
+
+    /**
      * Add grupCodigoid
      *
      * @param \Servicos\ApiBundle\Entity\Permissoes\Grupo $grupCodigoid
@@ -196,3 +236,4 @@ class Permissao
         return $this->usuaCodigoid;
     }
 }
+

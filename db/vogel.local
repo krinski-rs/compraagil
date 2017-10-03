@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.8.2" last-position="1078,1659" last-zoom="1.1"
+<dbmodel pgmodeler-ver="0.8.2" last-position="934,1659" last-zoom="1.1"
 	 default-schema="public" default-owner="postgres">
 <role name="rfreitas"
       superuser="true"
@@ -661,7 +661,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="usuario">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="1430.71" y="1935.19"/>
+	<position x="1431.62" y="1895.19"/>
 	<column name="id" not-null="true" sequence="permissoes.usuario_id_seq">
 		<type name="integer"/>
 	</column>
@@ -679,6 +679,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="removido" not-null="true" default-value="false">
 		<type name="boolean"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="character varying" length="255"/>
 	</column>
 	<column name="data_cadastro" not-null="true" default-value="now()">
 		<type name="timestamp"/>

@@ -255,3 +255,4 @@ class Localidade
         return $this->cidaCodigoid;
     }
 }
+

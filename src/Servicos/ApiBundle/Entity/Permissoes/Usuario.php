@@ -45,6 +45,16 @@ class Usuario implements UserInterface
     private $dataCadastro = 'now()';
 
     /**
+     * @var string
+     */
+    private $email;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $usuarioPermissao;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $grupCodigoid;
@@ -59,6 +69,7 @@ class Usuario implements UserInterface
      */
     public function __construct()
     {
+        $this->usuarioPermissao = new \Doctrine\Common\Collections\ArrayCollection();
         $this->grupCodigoid = new \Doctrine\Common\Collections\ArrayCollection();
         $this->permCodigoid = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -218,6 +229,64 @@ class Usuario implements UserInterface
     }
 
     /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Usuario
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Add usuarioPermissao
+     *
+     * @param \Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao $usuarioPermissao
+     *
+     * @return Usuario
+     */
+    public function addUsuarioPermissao(\Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao $usuarioPermissao)
+    {
+        $this->usuarioPermissao[] = $usuarioPermissao;
+
+        return $this;
+    }
+
+    /**
+     * Remove usuarioPermissao
+     *
+     * @param \Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao $usuarioPermissao
+     */
+    public function removeUsuarioPermissao(\Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao $usuarioPermissao)
+    {
+        $this->usuarioPermissao->removeElement($usuarioPermissao);
+    }
+
+    /**
+     * Get usuarioPermissao
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsuarioPermissao()
+    {
+        return $this->usuarioPermissao;
+    }
+
+    /**
      * Add grupCodigoid
      *
      * @param \Servicos\ApiBundle\Entity\Permissoes\Grupo $grupCodigoid
@@ -284,35 +353,6 @@ class Usuario implements UserInterface
     {
         return $this->permCodigoid;
     }
-    /**
-     * @var string
-     */
-    private $email;
-
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Usuario
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
     
     public function getRoles()
     {
@@ -330,3 +370,4 @@ class Usuario implements UserInterface
         return null;
     }
 }
+

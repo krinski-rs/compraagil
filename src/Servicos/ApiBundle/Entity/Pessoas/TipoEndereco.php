@@ -139,3 +139,4 @@ class TipoEndereco
         return $this->tipoendeRemovido;
     }
 }
+

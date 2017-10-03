@@ -20,13 +20,17 @@ class Criar {
     
     public function save(ParamFetcher $objParamFetcher)
     {
-        $objCriarStrategy = new StrategyPermissoesGrupos\CriarStrategy($objParamFetcher);
-        $objGrupo = new Grupo();
-        $objGrupo->setGrupDatacadastro(new \DateTime());
-        $objGrupo->setGrupDescricao(trim($objCriarStrategy->getParam('grupDescricao', true)));
-        $objGrupo->setGrupNome(trim($objCriarStrategy->getParam('grupDescricao', true)));
-        $this->objEntityManager->persist($objGrupo);
-        $this->objEntityManager->flush();
-        return $objGrupo;
+        try {
+            $objCriarStrategy = new StrategyPermissoesGrupos\CriarStrategy($objParamFetcher);
+            $objGrupo = new Grupo();
+            $objGrupo->setGrupDatacadastro(new \DateTime());
+            $objGrupo->setGrupDescricao(trim($objCriarStrategy->getParam('grupDescricao', true)));
+            $objGrupo->setGrupNome(trim($objCriarStrategy->getParam('grupDescricao', true)));
+            $this->objEntityManager->persist($objGrupo);
+            $this->objEntityManager->flush();
+            return $objGrupo;
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 }

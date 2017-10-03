@@ -168,3 +168,4 @@ class TipoRelacionamento
         return $this->tiporelaDatacadastro;
     }
 }
+

@@ -2,11 +2,20 @@ servicos_api_permissoes_grupo:
     type:     rest
     resource: Servicos\ApiBundle\Controller\Permissoes\GruposController
     name_prefix:  grup_
+    
 servicos_api_permissoes_usuario:
     type:     rest
     resource: Servicos\ApiBundle\Controller\Permissoes\UsuariosController
     name_prefix:  usua_
+    
 servicos_api_permissoes_permissao:
     type:     rest
     resource: Servicos\ApiBundle\Controller\Permissoes\PermissoesController
     name_prefix:  perm_
+    
+servicos_api_permissoes_usuario_permissao:
+    type:     rest
+    parent:   servicos_api_permissoes_usuario
+    resource: Servicos\ApiBundle\Controller\Permissoes\UsuariosPermissoesController
+    name_prefix:  usua_perm_
+    

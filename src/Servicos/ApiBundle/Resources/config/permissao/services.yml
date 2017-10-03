@@ -3,3 +3,12 @@ services:
         class: Servicos\ApiBundle\Service\Permissoes\Grupos\Criar
         lazy: true
         arguments: ["@doctrine"]
+    servicos_api.permissoes.permissoes.criar:
+        class: Servicos\ApiBundle\Service\Permissoes\Permissoes\Criar
+        lazy: true
+        arguments: ["@doctrine"]
+    servicos_api.permissoes.usuario.criar:
+        class: Servicos\ApiBundle\Service\Permissoes\Usuarios\Criar
+        lazy: true
+        arguments: ["@doctrine"]
+        

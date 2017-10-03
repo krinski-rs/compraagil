@@ -7,24 +7,45 @@ use FOS\RestBundle\Request\ParamFetcher;
 use Servicos\ApiBundle\Entity\Permissoes\Usuario;
 use Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao;
 use Servicos\ApiBundle\Entity\Permissoes\Permissao;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 
 class Criar {
     /**
-     * 
+     *
      * @var \Doctrine\ORM\EntityManager
      */
     private $objEntityManager = NULL;
     
-    public function __construct(Registry $objRegistry)
+    /**
+     *
+     * @var \Symfony\Component\Security\Core\Tests\Encoder\PasswordEncoder
+     */
+    private $objUserPasswordEncoder = NULL;
+    
+    public function __construct(Registry $objRegistry, UserPasswordEncoder $objUserPasswordEncoder)
     {
         $this->objEntityManager = $objRegistry->getManager('default');
+        $this->objUserPasswordEncoder = $objUserPasswordEncoder;
     }
     
     public function save(ParamFetcher $objParamFetcher)
     {
-//         $objCriarUsuarioPermissaoStrategy = new StrategyPermissoesUsuarios\CriarUsuarioPermissaoStrategy($objParamFetcher);
-//         $objCriarUsuarioPermissaoStrategy->createQueryBuilder($this->objEntityManager->createQueryBuilder());
-//         return $objUsuario;
+        $objCriarStrategy = new StrategyPermissoesUsuarios\CriarStrategy($objParamFetcher);
+        
+        $objUsuario = new Usuario();
+        $objUsuario->setAtivo(TRUE);
+        $objUsuario->setDataCadastro(new \DateTime());
+        $objUsuario->setEmail($objCriarStrategy->getParam('email', true));
+        $objUsuario->setSalt(uniqid(mt_rand()));
+        
+        $password = $this->objUserPasswordEncoder->encodePassword($objUsuario, $objCriarStrategy->getParam('password', true).$objUsuario->getSalt());
+        
+        $objUsuario->setPassword($password);
+        $objUsuario->setRemovido(FALSE);
+        $objUsuario->setUsername($objCriarStrategy->getParam('username', true));
+        $this->objEntityManager->persist($objUsuario);
+        $this->objEntityManager->flush();
+        return $objUsuario;
     }
     
     public function addPermissao(int $usuaCodigoid, int $permCodigoid, ParamFetcher $objParamFetcher)

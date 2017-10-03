@@ -4,6 +4,7 @@ namespace Servicos\ApiBundle\Controller\Permissoes;
 use FOS\RestBundle\Request\ParamFetcher;
 use Servicos\ApiBundle\Controller\RestController;
 use Servicos\ApiBundle\Exceptions\ApiException;
+use Servicos\ApiBundle\Service\Permissoes\Usuarios as ServicePermissoesUsuarios;
 
 /**
  *
@@ -69,7 +70,13 @@ class UsuariosController extends RestController
      */
     public function postUsuarioAction(ParamFetcher $objParamFetcher)
     {
+        
         try {
+            $objUsuarioCriar = $this->get('servicos_api.permissoes.usuario.criar');
+            if(!($objUsuarioCriar instanceof ServicePermissoesUsuarios\Criar)){
+                throw new \Exception('Class "Servicos\ApiBundle\Service\Permissoes\Usuarios\Criar" not found.', 500);
+            }
+            $objUsuarioCriar->save($objParamFetcher);
             
             return $this->success(
                 ['msg'=>'postUsuarioAction']

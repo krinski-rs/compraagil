@@ -52,7 +52,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
     public function checkCredentials($credentials, UserInterface $user)
     {
         $plainPassword = $credentials['password'];
-        if ($this->encoder->isPasswordValid($user, $plainPassword)) {
+        if ($this->encoder->isPasswordValid($user, $plainPassword).$user->getSalt()) {
             return true;
         }
         

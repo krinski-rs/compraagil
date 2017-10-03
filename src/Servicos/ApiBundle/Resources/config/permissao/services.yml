@@ -10,5 +10,5 @@ services:
     servicos_api.permissoes.usuario.criar:
         class: Servicos\ApiBundle\Service\Permissoes\Usuarios\Criar
         lazy: true
-        arguments: ["@doctrine"]
+        arguments: ["@doctrine", "@security.password_encoder"]
         

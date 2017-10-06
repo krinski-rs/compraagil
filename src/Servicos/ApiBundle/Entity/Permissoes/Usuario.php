@@ -2,10 +2,12 @@
 
 namespace Servicos\ApiBundle\Entity\Permissoes;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * Usuario
  */
-class Usuario
+class Usuario implements UserInterface
 {
     /**
      * @var integer
@@ -350,6 +352,22 @@ class Usuario
     public function getPermCodigoid()
     {
         return $this->permCodigoid;
+    }
+    
+    public function getRoles()
+    {
+        return [];
+    }
+    
+    public function setRole($role = null)
+    {
+        $this->role = $role;
+    }
+    
+    
+    public function eraseCredentials()
+    {
+        return null;
     }
 }
 

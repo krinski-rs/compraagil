@@ -33,4 +33,5 @@ security:
             logout:
                 path: /logout
                 target: /login
-            
+    access_control:
+        - { path: "^/welcome", roles: [ ROLE_USER ] }            

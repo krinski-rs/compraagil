@@ -1,0 +1,9 @@
+Letras	Binário		Decimal		Significado 
+—		000			0			Sem permissão
+–x		001			1			Permissão de execução
+-w-		010			2			Permissão de escrita
+-wx		011			3			Permissão de escrita e execução
+r–		100			4			Permissão de Leitura
+r-x		101			5			Permissão de leitura e execução
+rw-		110			6			Permissão de leitura e escrita
+rwx		111			7			Permissão total

@@ -661,7 +661,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="usuario">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="1431.62" y="1895.19"/>
+	<position x="1431.62" y="1892.97"/>
 	<column name="id" not-null="true" sequence="permissoes.usuario_id_seq">
 		<type name="integer"/>
 	</column>
@@ -684,7 +684,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="character varying" length="255"/>
 	</column>
 	<column name="data_cadastro" not-null="true" default-value="now()">
-		<type name="timestamp"/>
+		<type name="timestamp" precision="0"/>
 	</column>
 	<constraint name="usua_codigoid" type="pk-constr" table="permissoes.usuario">
 		<columns names="id" ref-type="src-columns"/>

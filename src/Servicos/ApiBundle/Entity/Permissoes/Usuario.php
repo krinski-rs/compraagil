@@ -63,6 +63,8 @@ class Usuario implements UserInterface
      * @var \Doctrine\Common\Collections\Collection
      */
     private $permCodigoid;
+    
+    private $role = [];
 
     /**
      * Constructor
@@ -356,7 +358,8 @@ class Usuario implements UserInterface
     
     public function getRoles()
     {
-        return [];
+        array_push($this->role, 'ROLE_USER');
+        return $this->role;
     }
     
     public function setRole($role = null)

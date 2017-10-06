@@ -5,7 +5,6 @@ use Doctrine\Bundle\DoctrineBundle\Registry;
 use FOS\RestBundle\Request\ParamFetcher;
 use Servicos\ApiBundle\Strategy\CatalagoServicos\Aplicacoes as StrategyCatalagoServicosAplicacoes;
 use Servicos\ApiBundle\Entity\CatalogoServico\Aplicacao;
-use Doctrine\DBAL\LockMode;
 
 class Criar {
     /**
@@ -28,10 +27,10 @@ class Criar {
             $objAplicacao->setApliAtivo(TRUE);
             $objAplicacao->setApliDatacadastro(new \DateTime());
             $objAplicacao->setApliKey(trim($objCriarStrategy->getParam('apliKey', true)));
-            $objAplicacao->setApliLeft(0);
+            $objAplicacao->setApliLeft(1);
             $objAplicacao->setApliNome(trim($objCriarStrategy->getParam('apliNome', true)));
             $objAplicacao->setApliRemovido(FALSE);
-            $objAplicacao->setApliRight(0);
+            $objAplicacao->setApliRight(2);
             $objAplicacao->setApliTipo(trim($objCriarStrategy->getParam('apliTipo', true)));
             $objAplicacao->setApliUrl(trim($objCriarStrategy->getParam('apliUrl', true)));
             $objAplicacao->setApliParentCodigoid($objCriarStrategy->getParam('apliParentCodigoid'));

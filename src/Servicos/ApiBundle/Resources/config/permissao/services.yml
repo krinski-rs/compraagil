@@ -7,7 +7,7 @@ services:
         class: Servicos\ApiBundle\Service\Permissoes\Permissoes\Criar
         lazy: true
         arguments: ["@doctrine"]
-    servicos_api.permissoes.usuario.criar:
+    servicos_api.permissoes.usuarios.criar:
         class: Servicos\ApiBundle\Service\Permissoes\Usuarios\Criar
         lazy: true
         arguments: ["@doctrine", "@security.password_encoder"]

@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.8.2" last-position="934,1659" last-zoom="1.1"
+<dbmodel pgmodeler-ver="0.8.2" last-position="0,304" last-zoom="0.45"
 	 default-schema="public" default-owner="postgres">
 <role name="rfreitas"
       superuser="true"
@@ -609,7 +609,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="timestamp"/>
 	</column>
 	<constraint name="check_grupo_permissao_valor" type="ck-constr" table="permissoes.grupo_permissao">
-			<expression><![CDATA[((grupperm_valor >= 1) AND (grupperm_valor <= 15))]]></expression>
+			<expression><![CDATA[((grupperm_valor >= 1) AND (grupperm_valor <= 7))]]></expression>
 	</constraint>
 	<constraint name="grupperm_codigoid" type="pk-constr" table="permissoes.grupo_permissao">
 		<columns names="grup_codigoid,perm_codigoid" ref-type="src-columns"/>
@@ -650,7 +650,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="grup_codigoid" not-null="true">
 		<type name="integer"/>
 	</column>
-	<column name="usuagrup_datacadastro" not-null="true">
+	<column name="usuagrup_datacadastro" not-null="true" default-value="NOW()">
 		<type name="timestamp"/>
 	</column>
 	<constraint name="usuagrup_codigoid" type="pk-constr" table="permissoes.usuario_grupo">
@@ -690,6 +690,58 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
+
+<schema name="catalogo_servico" rect-visible="true" fill-color="#e1e1e1">
+	<role name="postgres"/>
+</schema>
+
+<table name="aplicacao">
+	<schema name="catalogo_servico"/>
+	<role name="postgres"/>
+	<position x="1944.44" y="1482.22"/>
+	<column name="apli_codigoid" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="apli_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="apli_apelido" not-null="true">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="apli_key" default-value="NULL">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="apli_ativo" not-null="true" default-value="TRUE">
+		<type name="boolean"/>
+	</column>
+	<column name="apli_removido" not-null="true" default-value="FALSE">
+		<type name="boolean"/>
+	</column>
+	<column name="apli_url" not-null="true">
+		<type name="character varying" length="500"/>
+	</column>
+	<column name="apli_tipo" not-null="true">
+		<type name="catalogo_servico.tipo_aplicacao"/>
+	</column>
+	<column name="apli_datacadastro" not-null="true" default-value="NOW()">
+		<type name="timestamp" precision="0"/>
+	</column>
+	<column name="apli_left" not-null="true" default-value="1">
+		<type name="integer"/>
+	</column>
+	<column name="apli_right" not-null="true" default-value="1">
+		<type name="integer"/>
+	</column>
+	<constraint name="apli_codigoid" type="pk-constr" table="catalogo_servico.aplicacao">
+		<columns names="apli_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<usertype name="tipo_aplicacao" configuration="enumeration">
+	<schema name="catalogo_servico"/>
+	<role name="postgres"/>
+	<enumeration values="CORPORATIVO,ESPECIALISTA,MIDDLEWARE"/>
+</usertype>
 
 <constraint name="segm_codigoid" type="fk-constr" comparison-type="MATCH FULL"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.segmento" table="pessoas.pessoa">

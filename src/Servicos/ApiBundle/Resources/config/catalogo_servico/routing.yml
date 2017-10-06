@@ -1,0 +1,5 @@
+servicos_api_catalogo_servico_aplicacao:
+    type:     rest
+    resource: Servicos\ApiBundle\Controller\CatalogoServicos\AplicacoesController
+    name_prefix:  cata_serv_
+    

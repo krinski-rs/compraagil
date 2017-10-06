@@ -32,6 +32,13 @@ Servicos\ApiBundle\Entity\Permissoes\Grupo:
             options:
                 default: now()
             column: grup_datacadastro
+    oneToMany:
+        grupoPermissao:
+            targetEntity: Servicos\ApiBundle\Entity\Permissoes\GrupoPermissao
+            cascade:
+                - persist
+            fetch: LAZY
+            mappedBy: grupCodigoid
     manyToMany:
         usuaCodigoid:
             targetEntity: Servicos\ApiBundle\Entity\Permissoes\Usuario

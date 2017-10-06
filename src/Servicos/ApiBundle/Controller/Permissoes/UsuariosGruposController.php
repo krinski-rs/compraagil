@@ -13,7 +13,7 @@ use Servicos\ApiBundle\Service\Permissoes\Usuarios as ServicePermissoesUsuarios;
  * @author   Reinaldo Krinski <reinaldo.krinski@gmail.com>
  * @license  http://localhost proprietary
  */
-class UsuariosController extends RestController
+class UsuariosGruposController extends RestController
 {
     /**
      *
@@ -22,12 +22,12 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getUsuarioAction(int $id)
+    public function getGrupoAction(int $usuaCodigoid, int $grupCodigoid)
     {
         try {
             
             return $this->success(
-                ['msg'=>'getUsuarioAction']
+                ['msg'=>'getUsuarioPermissaoAction']
             );
         } catch (ApiException $ex) {
             return $this->buildResponse($ex->getStatusCode(), $ex->getDados());
@@ -43,12 +43,12 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getUsuariosAction(ParamFetcher $objParamFetcher)
+    public function getGruposAction(int $usuaCodigoid, ParamFetcher $objParamFetcher)
     {
         try {
             
             return $this->success(
-                ['msg'=>'getUsuariosAction']
+                ['msg'=>'getUsuariosPermissaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -68,18 +68,17 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function postUsuarioAction(ParamFetcher $objParamFetcher)
+    public function postGrupoAction(int $usuaCodigoid, int $grupCodigoid, ParamFetcher $objParamFetcher)
     {
-        
         try {
-            $objUsuarioCriar = $this->get('servicos_api.permissoes.usuarios.criar');
-            if(!($objUsuarioCriar instanceof ServicePermissoesUsuarios\Criar)){
+            $objGruposUsuario = $this->get('servicos_api.permissoes.usuarios.criar');
+            if(!($objGruposUsuario instanceof ServicePermissoesUsuarios\Criar)){
                 throw new \Exception('Class "Servicos\ApiBundle\Service\Permissoes\Usuarios\Criar" not found.', 500);
             }
-            $objUsuarioCriar->save($objParamFetcher);
+            $objGruposUsuario->addGrupo($usuaCodigoid, $grupCodigoid, $objParamFetcher);
             
             return $this->success(
-                ['msg'=>'postUsuarioAction']
+                ['msg'=>'postUsuarioPermissaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -100,12 +99,12 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function patchUsuarioAction(int $id, ParamFetcher $objParamFetcher)
+    public function patchGrupoAction(int $usuaCodigoid, int $grupCodigoid, ParamFetcher $objParamFetcher)
     {
         try {
             
             return $this->success(
-                ['msg'=>'patchUsuarioAction']
+                ['msg'=>'patchUsuarioPermissaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -126,12 +125,12 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function putUsuarioAction(int $id, ParamFetcher $objParamFetcher)
+    public function putGrupoAction(int $usuaCodigoid, int $grupCodigoid, ParamFetcher $objParamFetcher)
     {
         try {
             
             return $this->success(
-                ['msg'=>'putUsuarioAction']
+                ['msg'=>'putUsuarioPermissaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -151,12 +150,12 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function deleteUsuarioAction(int $id)
+    public function deleteGrupoAction(int $usuaCodigoid, int $grupCodigoid)
     {
         try {
             
             return $this->success(
-                ['msg'=>'deleteUsuarioAction']
+                ['msg'=>'deleteUsuarioPermissaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(

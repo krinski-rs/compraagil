@@ -8,6 +8,7 @@ use Servicos\ApiBundle\Entity\Permissoes\Usuario;
 use Servicos\ApiBundle\Entity\Permissoes\UsuarioPermissao;
 use Servicos\ApiBundle\Entity\Permissoes\Permissao;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
+use Servicos\ApiBundle\Entity\Permissoes\Grupo;
 
 class Criar {
     /**
@@ -76,6 +77,31 @@ class Criar {
             $this->objEntityManager->flush();
             
             return $objUsuarioPermissao;
+        } catch (\Exception $ex) {
+            \Doctrine\Common\Util\Debug::dump($ex);
+            throw $ex;
+        }
+    }
+    
+    public function addGrupo(int $usuaCodigoid, int $grupCodigoid, ParamFetcher $objParamFetcher)
+    {
+        try {
+            $objUsuario = $this->objEntityManager->getRepository('ServicosApiBundle:Permissoes\Usuario')->find($usuaCodigoid);
+            
+            if(!$objUsuario instanceof Usuario){
+                throw new \Exception("Usuário $usuaCodigoid não encontrado.");
+            }
+            
+            $objGrupo = $this->objEntityManager->getRepository('ServicosApiBundle:Permissoes\Grupo')->find($grupCodigoid);
+            if(!$objGrupo instanceof Grupo){
+                throw new \Exception("Grupo $grupCodigoid não encontrado.");
+            }
+            
+            $objUsuario->addGrupCodigoid($objGrupo);
+            $this->objEntityManager->merge($objUsuario);
+            $this->objEntityManager->flush();
+            
+            return $objUsuario;
         } catch (\Exception $ex) {
             throw $ex;
         }

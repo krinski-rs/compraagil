@@ -2,3 +2,8 @@ servicos_api_permissoes:
     type:     rest
     resource: "@ServicosApiBundle/Resources/config/permissao/routing.yml"
     prefix: /acesso
+servicos_api_catalogo_servicos:
+    type:     rest
+    resource: "@ServicosApiBundle/Resources/config/catalogo_servico/routing.yml"
+    prefix: /catalogo
+    

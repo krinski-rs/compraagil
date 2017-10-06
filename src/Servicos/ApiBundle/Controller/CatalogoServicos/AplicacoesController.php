@@ -1,33 +1,33 @@
 <?php
-namespace Servicos\ApiBundle\Controller\Permissoes;
+namespace Servicos\ApiBundle\Controller\CatalogoServicos;
 
 use FOS\RestBundle\Request\ParamFetcher;
 use Servicos\ApiBundle\Controller\RestController;
 use Servicos\ApiBundle\Exceptions\ApiException;
-use Servicos\ApiBundle\Service\Permissoes\Usuarios as ServicePermissoesUsuarios;
+use Servicos\ApiBundle\Service\CatalagoServicos\Aplicacoes as ServiceCatalagoServicosAplicacoes;
 
 /**
  *
  * @category Controllers
- * @package  Servicos\ApiBundle\Controller\Permissoes
+ * @package  Servicos\ApiBundle\Controller\CatalogoServicos
  * @author   Reinaldo Krinski <reinaldo.krinski@gmail.com>
  * @license  http://localhost proprietary
  */
-class UsuariosController extends RestController
+class AplicacoesController extends RestController
 {
     /**
      *
-     * @param int $id id do grupo
+     * @param int $id id do aplicação
      *
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getUsuarioAction(int $id)
+    public function getAplicacacoeAction(int $id)
     {
         try {
             
             return $this->success(
-                ['msg'=>'getUsuarioAction']
+                ['msg'=>'getAplicacaoAction']
             );
         } catch (ApiException $ex) {
             return $this->buildResponse($ex->getStatusCode(), $ex->getDados());
@@ -43,12 +43,12 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getUsuariosAction(ParamFetcher $objParamFetcher)
+    public function getAplicacacoesAction(ParamFetcher $objParamFetcher)
     {
         try {
             
             return $this->success(
-                ['msg'=>'getUsuariosAction']
+                ['msg'=>'getAplicacacoesAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -68,18 +68,18 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function postUsuarioAction(ParamFetcher $objParamFetcher)
+    public function postAplicacacoesAction(ParamFetcher $objParamFetcher)
     {
-        
         try {
-            $objUsuarioCriar = $this->get('servicos_api.permissoes.usuarios.criar');
-            if(!($objUsuarioCriar instanceof ServicePermissoesUsuarios\Criar)){
-                throw new \Exception('Class "Servicos\ApiBundle\Service\Permissoes\Usuarios\Criar" not found.', 500);
+            $objCatalagoServicosAplicacoes = $this->get('servicos_api.catalogo_servicos.aplicacoes.criar');
+            if(!($objCatalagoServicosAplicacoes instanceof ServiceCatalagoServicosAplicacoes\Criar)){
+                throw new \Exception('Class "Servicos\ApiBundle\Service\CatalagoServicos\Aplicacoes\Criar" not found.', 500);
             }
-            $objUsuarioCriar->save($objParamFetcher);
+            
+            $objCatalagoServicosAplicacoes->save($objParamFetcher);
             
             return $this->success(
-                ['msg'=>'postUsuarioAction']
+                ['msg'=>'postAplicacaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -100,12 +100,12 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function patchUsuarioAction(int $id, ParamFetcher $objParamFetcher)
+    public function patchAplicacacoesAction(int $id, ParamFetcher $objParamFetcher)
     {
         try {
             
             return $this->success(
-                ['msg'=>'patchUsuarioAction']
+                ['msg'=>'patchAplicacaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -126,12 +126,12 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function putUsuarioAction(int $id, ParamFetcher $objParamFetcher)
+    public function putAplicacacoesAction(int $id, ParamFetcher $objParamFetcher)
     {
         try {
             
             return $this->success(
-                ['msg'=>'putUsuarioAction']
+                ['msg'=>'putAplicacaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(
@@ -143,7 +143,7 @@ class UsuariosController extends RestController
             return $this->internalError($ex->getTraceAsString());
         }
     }
-
+    
     /**
      *
      * @param int $id
@@ -151,12 +151,12 @@ class UsuariosController extends RestController
      * @access public
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function deleteUsuarioAction(int $id)
+    public function deleteAplicacacoesAction(int $id)
     {
         try {
             
             return $this->success(
-                ['msg'=>'deleteUsuarioAction']
+                ['msg'=>'deleteAplicacaoAction']
             );
         } catch (\FOS\RestBundle\Exception\InvalidParameterException $ex) {
             return $this->badRequest(

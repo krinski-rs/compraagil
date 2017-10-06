@@ -71,7 +71,7 @@ class UsuariosPermissoesController extends RestController
     public function postPermissoeAction(int $usuaCodigoid, int $permCodigoid, ParamFetcher $objParamFetcher)
     {
         try {
-            $objPermissoesUsuario = $this->get('servicos_api.permissoes.usuario.criar');
+            $objPermissoesUsuario = $this->get('servicos_api.permissoes.usuarios.criar');
             if(!($objPermissoesUsuario instanceof ServicePermissoesUsuarios\Criar)){
                 throw new \Exception('Class "Servicos\ApiBundle\Service\Permissoes\Usuarios\Criar" not found.', 500);
             }

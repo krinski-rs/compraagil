@@ -30,6 +30,11 @@ class Grupo
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
+    private $grupoPermissao;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
     private $usuaCodigoid;
 
     /**
@@ -42,6 +47,7 @@ class Grupo
      */
     public function __construct()
     {
+        $this->grupoPermissao = new \Doctrine\Common\Collections\ArrayCollection();
         $this->usuaCodigoid = new \Doctrine\Common\Collections\ArrayCollection();
         $this->permCodigoid = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -126,6 +132,40 @@ class Grupo
     public function getGrupDatacadastro()
     {
         return $this->grupDatacadastro;
+    }
+
+    /**
+     * Add grupoPermissao
+     *
+     * @param \Servicos\ApiBundle\Entity\Permissoes\GrupoPermissao $grupoPermissao
+     *
+     * @return Grupo
+     */
+    public function addGrupoPermissao(\Servicos\ApiBundle\Entity\Permissoes\GrupoPermissao $grupoPermissao)
+    {
+        $this->grupoPermissao[] = $grupoPermissao;
+
+        return $this;
+    }
+
+    /**
+     * Remove grupoPermissao
+     *
+     * @param \Servicos\ApiBundle\Entity\Permissoes\GrupoPermissao $grupoPermissao
+     */
+    public function removeGrupoPermissao(\Servicos\ApiBundle\Entity\Permissoes\GrupoPermissao $grupoPermissao)
+    {
+        $this->grupoPermissao->removeElement($grupoPermissao);
+    }
+
+    /**
+     * Get grupoPermissao
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGrupoPermissao()
+    {
+        return $this->grupoPermissao;
     }
 
     /**

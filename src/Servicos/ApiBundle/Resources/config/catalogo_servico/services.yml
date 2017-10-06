@@ -1,0 +1,5 @@
+services:
+    servicos_api.catalogo_servicos.aplicacoes.criar:
+        class: Servicos\ApiBundle\Service\CatalagoServicos\Aplicacoes\Criar
+        lazy: true
+        arguments: ["@doctrine"]

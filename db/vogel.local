@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.8.2" last-position="0,304" last-zoom="0.45"
+<dbmodel pgmodeler-ver="0.8.2" last-position="698,0" last-zoom="0.55"
 	 default-schema="public" default-owner="postgres">
 <role name="rfreitas"
       superuser="true"
@@ -30,7 +30,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
 </schema>
 
-<schema name="pessoas" rect-visible="true" fill-color="#c10f2d">
+<schema name="pessoas" rect-visible="true" fill-color="#dbc9e1">
 	<role name="postgres"/>
 </schema>
 
@@ -63,7 +63,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="pessoa">
 	<schema name="pessoas"/>
 	<role name="postgres"/>
-	<position x="102.5" y="923.571"/>
+	<position x="83.3333" y="78.8889"/>
 	<column name="pess_codigoid" not-null="true" sequence="pessoas.pessoa_pess_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -110,7 +110,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="segmento">
 	<schema name="pessoas"/>
 	<role name="postgres"/>
-	<position x="1283.79" y="1203.57"/>
+	<position x="973.83" y="205.556"/>
 	<column name="segm_codigoid" not-null="true" sequence="pessoas.segmento_segm_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -145,7 +145,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="tipo_documento">
 	<schema name="pessoas"/>
 	<role name="postgres"/>
-	<position x="1764.8" y="960.714"/>
+	<position x="1364.05" y="85.5556"/>
 	<column name="tipodocu_codigoid" not-null="true" sequence="pessoas.tipo_documento_tipodocu_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -183,7 +183,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="documento">
 	<schema name="pessoas"/>
 	<role name="postgres"/>
-	<position x="1284.98" y="949.286"/>
+	<position x="660.099" y="53.3333"/>
 	<column name="docu_codigoid" not-null="true" sequence="pessoas.documento_docu_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -221,7 +221,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="tipo_relacionamento">
 	<schema name="pessoas"/>
 	<role name="postgres"/>
-	<position x="104.496" y="1243.57"/>
+	<position x="44.059" y="492.222"/>
 	<column name="tiporela_codigoid" not-null="true" sequence="pessoas.tipo_relacionamento_tiporela_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -248,7 +248,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="pessoa_2_pessoa">
 	<schema name="pessoas"/>
 	<role name="postgres"/>
-	<position x="653.929" y="1208.4"/>
+	<position x="156.667" y="325.622"/>
 	<column name="pess_mandatario" not-null="true">
 		<type name="integer"/>
 	</column>
@@ -286,7 +286,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="endereco">
 	<schema name="pessoas"/>
 	<role name="postgres"/>
-	<position x="1104.4" y="568.4"/>
+	<position x="896.661" y="341.178"/>
 	<column name="ende_codigoid" not-null="true" sequence="pessoas.endereco_ende_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -325,7 +325,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<schema name="localidades" rect-visible="true" fill-color="#aa6ba5">
+<schema name="localidades" rect-visible="true" fill-color="#8d3b01">
 	<role name="postgres"/>
 </schema>
 
@@ -340,7 +340,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="pais">
 	<schema name="localidades"/>
 	<role name="postgres"/>
-	<position x="128.306" y="80.1429"/>
+	<position x="1253.62" y="961.111"/>
 	<column name="pais_codigoid" not-null="true" sequence="localidades.pais_pais_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -384,7 +384,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="estado">
 	<schema name="localidades"/>
 	<role name="postgres"/>
-	<position x="528.281" y="308.714"/>
+	<position x="519.948" y="1021.11"/>
 	<column name="esta_codigoid" not-null="true" sequence="localidades.estado_esta_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -422,7 +422,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="cidade">
 	<schema name="localidades"/>
 	<role name="postgres"/>
-	<position x="1164.37" y="174.429"/>
+	<position x="66.8264" y="703.333"/>
 	<column name="cida_codigoid" not-null="true" sequence="localidades.cidade_cida_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -457,7 +457,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="localidade">
 	<schema name="localidades"/>
 	<role name="postgres"/>
-	<position x="605.368" y="28.7143"/>
+	<position x="1415.13" y="712.222"/>
 	<column name="loca_codigoid" not-null="true" sequence="localidades.localidade_loca_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -501,7 +501,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="tipo_endereco">
 	<schema name="pessoas"/>
 	<role name="postgres"/>
-	<position x="1898.07" y="628.4"/>
+	<position x="1515.73" y="421.178"/>
 	<column name="tipoende_codigoid" not-null="true" sequence="pessoas.tipo_endereco_tipoende_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -522,7 +522,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<schema name="permissoes" rect-visible="true" fill-color="#1f8fd8">
+<schema name="permissoes" rect-visible="true" fill-color="#a20d96">
 	<role name="postgres"/>
 </schema>
 
@@ -536,7 +536,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="grupo_grup_codigoid_seq"
 	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
+	 min-value="0" max-value="9223372036854775807"
 	 cache="1" cycle="false">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
@@ -545,7 +545,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="grupo">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="953.169" y="1593.84"/>
+	<position x="1970.12" y="534.242"/>
 	<column name="grup_codigoid" not-null="true" sequence="permissoes.grupo_grup_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -565,7 +565,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="permissao_perm_codigoid_seq"
 	 start="1" increment="1"
-	 min-value="1" max-value="9223372036854775807"
+	 min-value="0" max-value="9223372036854775807"
 	 cache="1" cycle="false">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
@@ -574,7 +574,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="permissao">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="98.1818" y="1740.07"/>
+	<position x="2560.14" y="518.687"/>
 	<column name="perm_codigoid" not-null="true" sequence="permissoes.permissao_perm_codigoid_seq">
 		<type name="integer"/>
 	</column>
@@ -595,7 +595,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="grupo_permissao">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="498.091" y="1457.22"/>
+	<position x="2554.01" y="765.354"/>
 	<column name="perm_codigoid" not-null="true">
 		<type name="integer"/>
 	</column>
@@ -608,18 +608,18 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="grupperm_datacadastro" not-null="true" default-value="now()">
 		<type name="timestamp"/>
 	</column>
-	<constraint name="check_grupo_permissao_valor" type="ck-constr" table="permissoes.grupo_permissao">
-			<expression><![CDATA[((grupperm_valor >= 1) AND (grupperm_valor <= 7))]]></expression>
-	</constraint>
 	<constraint name="grupperm_codigoid" type="pk-constr" table="permissoes.grupo_permissao">
 		<columns names="grup_codigoid,perm_codigoid" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="check_grupo_permissao_valor" type="ck-constr" table="permissoes.grupo_permissao">
+			<expression><![CDATA[((grupperm_valor >= 1) AND (grupperm_valor <= 7))]]></expression>
 	</constraint>
 </table>
 
 <table name="usuario_permissao">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="565.296" y="1937.22"/>
+	<position x="3097.41" y="498.687"/>
 	<column name="usua_codigoid" not-null="true">
 		<type name="integer"/>
 	</column>
@@ -632,25 +632,25 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="usuaperm_datacadastro" not-null="true" default-value="now()">
 		<type name="timestamp"/>
 	</column>
-	<constraint name="check_usuario_permissao_valor" type="ck-constr" table="permissoes.usuario_permissao">
-			<expression><![CDATA[((usuaperm_valor >= 1) AND (usuaperm_valor <= 7))]]></expression>
-	</constraint>
 	<constraint name="usuaperm_codigoid" type="pk-constr" table="permissoes.usuario_permissao">
 		<columns names="usua_codigoid,perm_codigoid" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="check_usuario_permissao_valor" type="ck-constr" table="permissoes.usuario_permissao">
+			<expression><![CDATA[((usuaperm_valor >= 1) AND (usuaperm_valor <= 7))]]></expression>
 	</constraint>
 </table>
 
 <table name="usuario_grupo">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="1439.27" y="1460.07"/>
+	<position x="1981.85" y="1036.46"/>
 	<column name="usua_codigoid" not-null="true">
 		<type name="integer"/>
 	</column>
 	<column name="grup_codigoid" not-null="true">
 		<type name="integer"/>
 	</column>
-	<column name="usuagrup_datacadastro" not-null="true" default-value="NOW()">
+	<column name="usuagrup_datacadastro" not-null="true" default-value="now()">
 		<type name="timestamp"/>
 	</column>
 	<constraint name="usuagrup_codigoid" type="pk-constr" table="permissoes.usuario_grupo">
@@ -661,7 +661,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="usuario">
 	<schema name="permissoes"/>
 	<role name="postgres"/>
-	<position x="1431.62" y="1892.97"/>
+	<position x="3096.79" y="988.087"/>
 	<column name="id" not-null="true" sequence="permissoes.usuario_id_seq">
 		<type name="integer"/>
 	</column>
@@ -680,27 +680,41 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="removido" not-null="true" default-value="false">
 		<type name="boolean"/>
 	</column>
+	<column name="data_cadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
 	<column name="email" not-null="true">
 		<type name="character varying" length="255"/>
-	</column>
-	<column name="data_cadastro" not-null="true" default-value="now()">
-		<type name="timestamp" precision="0"/>
 	</column>
 	<constraint name="usua_codigoid" type="pk-constr" table="permissoes.usuario">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
-<schema name="catalogo_servico" rect-visible="true" fill-color="#e1e1e1">
+<schema name="catalogo_servico" rect-visible="true" fill-color="#f2e744">
 	<role name="postgres"/>
 </schema>
+
+<usertype name="tipo_aplicacao" configuration="enumeration">
+	<schema name="catalogo_servico"/>
+	<role name="postgres"/>
+	<enumeration values="CORPORATIVO,ESPECIALISTA,MIDDLEWARE"/>
+</usertype>
+
+<sequence name="aplicacao_apli_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="catalogo_servico"/>
+	<role name="postgres"/>
+</sequence>
 
 <table name="aplicacao">
 	<schema name="catalogo_servico"/>
 	<role name="postgres"/>
-	<position x="1944.44" y="1482.22"/>
-	<column name="apli_codigoid" not-null="true">
-		<type name="serial"/>
+	<position x="47.7778" y="1459.02"/>
+	<column name="apli_codigoid" not-null="true" sequence="catalogo_servico.aplicacao_apli_codigoid_seq">
+		<type name="integer"/>
 	</column>
 	<column name="apli_nome" not-null="true">
 		<type name="character varying" length="255"/>
@@ -708,13 +722,13 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="apli_apelido" not-null="true">
 		<type name="character varying" length="10"/>
 	</column>
-	<column name="apli_key" default-value="NULL">
+	<column name="apli_key" default-value="NULL::character varying">
 		<type name="character varying" length="255"/>
 	</column>
-	<column name="apli_ativo" not-null="true" default-value="TRUE">
+	<column name="apli_ativo" not-null="true" default-value="true">
 		<type name="boolean"/>
 	</column>
-	<column name="apli_removido" not-null="true" default-value="FALSE">
+	<column name="apli_removido" not-null="true" default-value="false">
 		<type name="boolean"/>
 	</column>
 	<column name="apli_url" not-null="true">
@@ -723,8 +737,8 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="apli_tipo" not-null="true">
 		<type name="catalogo_servico.tipo_aplicacao"/>
 	</column>
-	<column name="apli_datacadastro" not-null="true" default-value="NOW()">
-		<type name="timestamp" precision="0"/>
+	<column name="apli_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
 	</column>
 	<column name="apli_left" not-null="true" default-value="1">
 		<type name="integer"/>
@@ -737,11 +751,347 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<usertype name="tipo_aplicacao" configuration="enumeration">
-	<schema name="catalogo_servico"/>
+<schema name="troubleticket" rect-visible="true" fill-color="#0c0bc2">
 	<role name="postgres"/>
-	<enumeration values="CORPORATIVO,ESPECIALISTA,MIDDLEWARE"/>
-</usertype>
+</schema>
+
+<table name="configs">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+	<position x="897.415" y="1370.13"/>
+	<column name="name" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="value" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+</table>
+
+<sequence name="history_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="history">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+	<position x="881.392" y="1501.24"/>
+	<column name="id" not-null="true" sequence="troubleticket.history_id_seq">
+		<type name="integer"/>
+	</column>
+	<column name="report_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="subcase_id">
+		<type name="integer"/>
+	</column>
+	<column name="comment" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<column name="reason">
+		<type name="text"/>
+	</column>
+	<column name="support_level">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="report_status" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="usuario">
+		<type name="character varying" length="255"/>
+	</column>
+</table>
+
+<sequence name="messages_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="messages">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+	<position x="1214.11" y="1345.69"/>
+	<column name="id" not-null="true" sequence="troubleticket.messages_id_seq">
+		<type name="integer"/>
+	</column>
+	<column name="report_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="message" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<column name="user_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="reference_repository" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="reference_id" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="viewed_by">
+		<type name="integer"/>
+	</column>
+</table>
+
+<sequence name="reports_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="reports">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+	<position x="1591.92" y="1332.36"/>
+	<column name="id" not-null="true" sequence="troubleticket.reports_id_seq">
+		<type name="integer"/>
+	</column>
+	<column name="parent_id">
+		<type name="integer"/>
+	</column>
+	<column name="circuit_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="designation" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="initial_date" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<column name="final_date">
+		<type name="timestamp"/>
+	</column>
+	<column name="type" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="description">
+		<type name="text"/>
+	</column>
+	<column name="stack" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="operator_report_identifier">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="responsible">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="requester_name">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="requester_phone">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="requester_email">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="cause">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="failure">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="failure_local">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="problem">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="status" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="solution">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="tme_counter">
+		<type name="integer"/>
+	</column>
+	<column name="paused_counter">
+		<type name="integer"/>
+	</column>
+	<column name="solved_counter">
+		<type name="integer"/>
+	</column>
+	<column name="tmr_counter">
+		<type name="integer"/>
+	</column>
+	<column name="noc_counter">
+		<type name="integer"/>
+	</column>
+	<column name="sn1_counter">
+		<type name="integer"/>
+	</column>
+	<column name="sn2_counter">
+		<type name="integer"/>
+	</column>
+	<column name="coc_counter">
+		<type name="integer"/>
+	</column>
+	<column name="displacement_counter">
+		<type name="integer"/>
+	</column>
+	<column name="infra_counter">
+		<type name="integer"/>
+	</column>
+	<column name="field_counter">
+		<type name="integer"/>
+	</column>
+	<column name="client_counter">
+		<type name="integer"/>
+	</column>
+	<column name="sn1">
+		<type name="integer"/>
+	</column>
+	<column name="sn2">
+		<type name="integer"/>
+	</column>
+	<column name="code" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="close_reason">
+		<type name="text"/>
+	</column>
+	<column name="symptom">
+		<type name="integer"/>
+	</column>
+	<column name="stretch">
+		<type name="text"/>
+	</column>
+	<column name="sn3">
+		<type name="integer"/>
+	</column>
+	<column name="sn3_counter">
+		<type name="integer"/>
+	</column>
+	<column name="voz">
+		<type name="integer"/>
+	</column>
+	<column name="voz_counter">
+		<type name="integer"/>
+	</column>
+	<column name="last_update">
+		<type name="timestamp"/>
+	</column>
+	<column name="issue" not-null="true" default-value="0">
+		<type name="numeric" precision="0"/>
+	</column>
+	<column name="created_by_client" not-null="true">
+		<type name="boolean"/>
+	</column>
+	<column name="service_channel">
+		<type name="integer"/>
+	</column>
+	<column name="closed_symptom">
+		<type name="integer"/>
+	</column>
+	<column name="structure">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="element">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="pop_id">
+		<type name="integer"/>
+	</column>
+	<column name="provider_id">
+		<type name="integer"/>
+	</column>
+	<column name="incident">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="created_by_system">
+		<type name="integer"/>
+	</column>
+</table>
+
+<table name="subcases">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+	<position x="893.844" y="1705.69"/>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="team">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="forecast">
+		<type name="time"/>
+	</column>
+	<column name="status" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="report_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="code" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="list_of_materials">
+		<type name="text"/>
+	</column>
+	<column name="id_activity">
+		<type name="integer"/>
+	</column>
+	<column name="activity_type">
+		<type name="character varying" length="12"/>
+	</column>
+</table>
+
+<sequence name="time_counters_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="time_counters">
+	<schema name="troubleticket"/>
+	<role name="postgres"/>
+	<position x="1230.75" y="1525.53"/>
+	<column name="id" not-null="true" sequence="troubleticket.time_counters_id_seq">
+		<type name="integer"/>
+	</column>
+	<column name="report_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="initial_date" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<column name="final_date">
+		<type name="timestamp"/>
+	</column>
+	<column name="stack" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="subcase_id">
+		<type name="integer"/>
+	</column>
+	<column name="subcase_status">
+		<type name="integer"/>
+	</column>
+	<column name="report_status" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+</table>
 
 <constraint name="segm_codigoid" type="fk-constr" comparison-type="MATCH FULL"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.segmento" table="pessoas.pessoa">
@@ -852,105 +1202,113 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </constraint>
 
 <relationship name="rel_pessoa_segmento" type="relfk"
-	 custom-color="#a83ccf"
+	 custom-color="#de7f53"
 	 src-table="pessoas.pessoa"
 	 dst-table="pessoas.segmento"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_documento_pessoa" type="relfk"
-	 custom-color="#4a6077"
+	 custom-color="#7d8b8a"
 	 src-table="pessoas.documento"
 	 dst-table="pessoas.pessoa"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_documento_tipo_documento" type="relfk"
-	 custom-color="#343313"
+	 custom-color="#7d0de4"
 	 src-table="pessoas.documento"
 	 dst-table="pessoas.tipo_documento"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_pessoa_2_pessoa_pessoa" type="relfk"
-	 custom-color="#85c868"
+	 custom-color="#a0e77a"
 	 src-table="pessoas.pessoa_2_pessoa"
 	 dst-table="pessoas.pessoa"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_pessoa_2_pessoa_tipo_relacionamento" type="relfk"
-	 custom-color="#cb5527"
+	 custom-color="#b7db87"
 	 src-table="pessoas.pessoa_2_pessoa"
 	 dst-table="pessoas.tipo_relacionamento"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_endereco_pessoa" type="relfk"
-	 custom-color="#28c426"
+	 custom-color="#77e2cb"
 	 src-table="pessoas.endereco"
 	 dst-table="pessoas.pessoa"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_endereco_cidade" type="relfk"
-	 custom-color="#a150c9"
+	 custom-color="#1c2662"
 	 src-table="pessoas.endereco"
 	 dst-table="localidades.cidade"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_endereco_tipo_endereco" type="relfk"
-	 custom-color="#012f3f"
+	 custom-color="#608852"
 	 src-table="pessoas.endereco"
 	 dst-table="pessoas.tipo_endereco"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_estado_pais" type="relfk"
-	 custom-color="#d73a90"
+	 custom-color="#444b9c"
 	 src-table="localidades.estado"
 	 dst-table="localidades.pais"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_cidade_estado" type="relfk"
-	 custom-color="#327fe3"
+	 custom-color="#7919d7"
 	 src-table="localidades.cidade"
 	 dst-table="localidades.estado"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_localidade_cidade" type="relfk"
-	 custom-color="#228dd0"
+	 custom-color="#110a60"
 	 src-table="localidades.localidade"
 	 dst-table="localidades.cidade"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_grupo_permissao_grupo" type="relfk"
-	 custom-color="#ad9479"
+	 custom-color="#f50c74"
 	 src-table="permissoes.grupo_permissao"
 	 dst-table="permissoes.grupo"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_grupo_permissao_permissao" type="relfk"
-	 custom-color="#ab760b"
+	 custom-color="#4c819b"
 	 src-table="permissoes.grupo_permissao"
 	 dst-table="permissoes.permissao"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_usuario_permissao_usuario" type="relfk"
-	 custom-color="#4af2b6"
+	 custom-color="#e84b3b"
 	 src-table="permissoes.usuario_permissao"
 	 dst-table="permissoes.usuario"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_usuario_permissao_permissao" type="relfk"
-	 custom-color="#39ccf6"
+	 custom-color="#981367"
 	 src-table="permissoes.usuario_permissao"
 	 dst-table="permissoes.permissao"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="53.3513" y="43.8949"/>
+	</label>
+</relationship>
 
 <relationship name="rel_usuario_grupo_usuario" type="relfk"
-	 custom-color="#9b30c7"
+	 custom-color="#aeaea2"
 	 src-table="permissoes.usuario_grupo"
 	 dst-table="permissoes.usuario"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_usuario_grupo_grupo" type="relfk"
-	 custom-color="#6c4ffe"
+	 custom-color="#dad793"
 	 src-table="permissoes.usuario_grupo"
 	 dst-table="permissoes.grupo"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="21.6059" y="32.0767"/>
+	</label>
+</relationship>
 
 </dbmodel>

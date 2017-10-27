@@ -19,3 +19,7 @@ app_welcome:
     path:     /welcome
     defaults: { _controller: "AppBundle:Index:welcome" }
     
+app_usuarios:
+    path:     /usuarios/view
+    defaults: { _controller: "AppBundle:Permissoes/Usuarios/Default:default" }
+    

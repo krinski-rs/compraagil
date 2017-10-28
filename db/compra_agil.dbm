@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.8.2" last-position="0,0" last-zoom="1"
+	 default-owner="postgres">
+<role name="rfreitas"
+      superuser="true"
+      createdb="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="gcdb"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="compra_agil" encoding="UTF8" lc-collate="pt_BR" lc-ctype="pt_BR">
+	<role name="rfreitas"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="pessoas" rect-visible="true" fill-color="#c10f2d">
+	<role name="postgres"/>
+</schema>
+
+<usertype name="tipo_pessoa" configuration="enumeration">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<enumeration values="Juídica,Física"/>
+</usertype>
+
+<usertype name="nacionalidade_pessoa" configuration="enumeration">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<enumeration values="Nacional,Estrangeira"/>
+</usertype>
+
+<usertype name="sexo_pessoa" configuration="enumeration">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<enumeration values="Masculino,Feminino,Empresa"/>
+</usertype>
+
+<sequence name="pessoa_pess_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="pessoa">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<position x="102.5" y="923.571"/>
+	<column name="pess_codigoid" not-null="true" sequence="pessoas.pessoa_pess_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="segm_codigoid">
+		<type name="integer"/>
+	</column>
+	<column name="pess_tipo" not-null="true">
+		<type name="pessoas.tipo_pessoa"/>
+	</column>
+	<column name="pess_sexo" not-null="true">
+		<type name="pessoas.sexo_pessoa"/>
+	</column>
+	<column name="pess_nacionalidade" not-null="true">
+		<type name="pessoas.nacionalidade_pessoa"/>
+	</column>
+	<column name="pess_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="pess_dataaniversario" not-null="true">
+		<type name="date"/>
+	</column>
+	<column name="pess_ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="pess_removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="pess_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pess_codigoid" type="pk-constr" table="pessoas.pessoa">
+		<columns names="pess_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="segmento_segm_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="segmento">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<position x="1283.79" y="1203.57"/>
+	<column name="segm_codigoid" not-null="true" sequence="pessoas.segmento_segm_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="segm_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="segm_descricao">
+		<type name="text"/>
+	</column>
+	<column name="segm_ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="segm_removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="segm_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="segm_codigoid" type="pk-constr" table="pessoas.segmento">
+		<columns names="segm_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tipo_documento_tipodocu_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="tipo_documento">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<position x="1764.8" y="960.714"/>
+	<column name="tipodocu_codigoid" not-null="true" sequence="pessoas.tipo_documento_tipodocu_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="pess_tipo" not-null="true">
+		<type name="pessoas.tipo_pessoa"/>
+	</column>
+	<column name="tipodocu_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="tipodocu_descricao">
+		<type name="text"/>
+	</column>
+	<column name="tipodocu_ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="tipodocu_removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="tipodocu_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="tipodocu_codigoid" type="pk-constr" table="pessoas.tipo_documento">
+		<columns names="tipodocu_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="documento_docu_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="documento">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<position x="1284.98" y="949.286"/>
+	<column name="docu_codigoid" not-null="true" sequence="pessoas.documento_docu_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="pess_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="tipodocu_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="docu_ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="docu_removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="docu_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="docu_codigoid" type="pk-constr" table="pessoas.documento">
+		<columns names="docu_codigoid" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="tipodocu_unique" type="uq-constr" table="pessoas.documento">
+		<columns names="pess_codigoid,tipodocu_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tipo_relacionamento_tiporela_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="tipo_relacionamento">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<position x="104.496" y="1243.57"/>
+	<column name="tiporela_codigoid" not-null="true" sequence="pessoas.tipo_relacionamento_tiporela_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="pess_tipo" not-null="true">
+		<type name="pessoas.tipo_pessoa"/>
+	</column>
+	<column name="tiporela_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="tiporela_ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="tiporela_removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="tiporela_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="tiporela_codigoid" type="pk-constr" table="pessoas.tipo_relacionamento">
+		<columns names="tiporela_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="pessoa_2_pessoa">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<position x="653.929" y="1208.4"/>
+	<column name="pess_mandatario" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="pess_subordinado" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="tiporela_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="pess2pess_ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="pess2pess_removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="pess2pess_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pess2pess_not_equals" type="ck-constr" table="pessoas.pessoa_2_pessoa">
+			<expression><![CDATA[(pess_mandatario <> pess_subordinado)]]></expression>
+	</constraint>
+	<constraint name="pess2pess_codigoid" type="pk-constr" table="pessoas.pessoa_2_pessoa">
+		<columns names="pess_mandatario,pess_subordinado,tiporela_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="endereco_ende_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="endereco">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<position x="1104.4" y="568.4"/>
+	<column name="ende_codigoid" not-null="true" sequence="pessoas.endereco_ende_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="pess_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="cida_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="tipoende_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="ende_numero" not-null="true">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="ende_logradouro" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="ende_complemento" default-value="NULL::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="ende_ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="ende_removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="ende_ponto">
+		<type name="point"/>
+	</column>
+	<column name="ende_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="ende_codigoid" type="pk-constr" table="pessoas.endereco">
+		<columns names="ende_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<schema name="localidades" rect-visible="true" fill-color="#aa6ba5">
+	<role name="postgres"/>
+</schema>
+
+<sequence name="pais_pais_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="localidades"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="pais">
+	<schema name="localidades"/>
+	<role name="postgres"/>
+	<position x="128.306" y="80.1429"/>
+	<column name="pais_codigoid" not-null="true" sequence="localidades.pais_pais_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="pais_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="pais_acronimo" not-null="true">
+		<type name="character varying" length="5"/>
+	</column>
+	<column name="pais_acesso_ddi" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="pais_codigo_discagem" not-null="true">
+		<type name="character varying" length="7" dimension="1"/>
+	</column>
+	<column name="pais_ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="pais_removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="pais_poligono">
+		<type name="polygon"/>
+	</column>
+	<column name="pais_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pais_codigoid" type="pk-constr" table="localidades.pais">
+		<columns names="pais_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="estado_esta_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="localidades"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="estado">
+	<schema name="localidades"/>
+	<role name="postgres"/>
+	<position x="528.281" y="308.714"/>
+	<column name="esta_codigoid" not-null="true" sequence="localidades.estado_esta_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="pais_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="esta_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="esta_acronimo" not-null="true">
+		<type name="character varying" length="5"/>
+	</column>
+	<column name="esta_codigo_discagem" not-null="true">
+		<type name="character varying" length="7" dimension="1"/>
+	</column>
+	<column name="esta_poligono">
+		<type name="polygon"/>
+	</column>
+	<column name="esta_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="esta_codigoid" type="pk-constr" table="localidades.estado">
+		<columns names="esta_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="cidade_cida_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="localidades"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="cidade">
+	<schema name="localidades"/>
+	<role name="postgres"/>
+	<position x="1164.37" y="174.429"/>
+	<column name="cida_codigoid" not-null="true" sequence="localidades.cidade_cida_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="esta_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="cida_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="cida_codigo_discagem" not-null="true">
+		<type name="character varying" length="7" dimension="1"/>
+	</column>
+	<column name="cida_poligono">
+		<type name="polygon"/>
+	</column>
+	<column name="cida_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="cida_codigoid" type="pk-constr" table="localidades.cidade">
+		<columns names="cida_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="localidade_loca_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="localidades"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="localidade">
+	<schema name="localidades"/>
+	<role name="postgres"/>
+	<position x="605.368" y="28.7143"/>
+	<column name="loca_codigoid" not-null="true" sequence="localidades.localidade_loca_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="cida_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="cida_cnl_acronimo" default-value="NULL::character varying">
+		<type name="character varying" length="5"/>
+	</column>
+	<column name="loca_cnl_codigo">
+		<type name="integer"/>
+	</column>
+	<column name="cida_cnl_acronimo_local" default-value="NULL::character varying">
+		<type name="character varying" length="5"/>
+	</column>
+	<column name="loca_cnl_codigo_local">
+		<type name="integer"/>
+	</column>
+	<column name="loca_cnl_codigo_local2">
+		<type name="integer"/>
+	</column>
+	<column name="loca_poligono">
+		<type name="polygon"/>
+	</column>
+	<column name="loca_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="loca_codigoid" type="pk-constr" table="localidades.localidade">
+		<columns names="loca_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tipo_endereco_tipoende_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="tipo_endereco">
+	<schema name="pessoas"/>
+	<role name="postgres"/>
+	<position x="1898.07" y="628.4"/>
+	<column name="tipoende_codigoid" not-null="true" sequence="pessoas.tipo_endereco_tipoende_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="pess_tipo" not-null="true">
+		<type name="pessoas.tipo_pessoa"/>
+	</column>
+	<column name="tipoende_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="tipoende_ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="tipoende_removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<constraint name="tipoende_codigoid" type="pk-constr" table="pessoas.tipo_endereco">
+		<columns names="tipoende_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<schema name="permissoes" rect-visible="true" fill-color="#1f8fd8">
+	<role name="postgres"/>
+</schema>
+
+<sequence name="usuario_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="permissoes"/>
+	<role name="postgres"/>
+</sequence>
+
+<sequence name="grupo_grup_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="permissoes"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="grupo">
+	<schema name="permissoes"/>
+	<role name="postgres"/>
+	<position x="953.169" y="1593.84"/>
+	<column name="grup_codigoid" not-null="true" sequence="permissoes.grupo_grup_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="grup_nome" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="grup_descricao" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="grup_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="grup_codigoid" type="pk-constr" table="permissoes.grupo">
+		<columns names="grup_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="permissao_perm_codigoid_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="permissoes"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="permissao">
+	<schema name="permissoes"/>
+	<role name="postgres"/>
+	<position x="98.1818" y="1740.07"/>
+	<column name="perm_codigoid" not-null="true" sequence="permissoes.permissao_perm_codigoid_seq">
+		<type name="integer"/>
+	</column>
+	<column name="perm_nome" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="perm_descricao" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="perm_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="perm_codigoid" type="pk-constr" table="permissoes.permissao">
+		<columns names="perm_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="grupo_permissao">
+	<schema name="permissoes"/>
+	<role name="postgres"/>
+	<position x="498.091" y="1457.22"/>
+	<column name="perm_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="grup_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="grupperm_valor" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="grupperm_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="check_grupo_permissao_valor" type="ck-constr" table="permissoes.grupo_permissao">
+			<expression><![CDATA[((grupperm_valor >= 1) AND (grupperm_valor <= 7))]]></expression>
+	</constraint>
+	<constraint name="grupperm_codigoid" type="pk-constr" table="permissoes.grupo_permissao">
+		<columns names="grup_codigoid,perm_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="usuario_permissao">
+	<schema name="permissoes"/>
+	<role name="postgres"/>
+	<position x="565.296" y="1937.22"/>
+	<column name="usua_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="perm_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="usuaperm_valor" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="usuaperm_datacadastro" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="check_usuario_permissao_valor" type="ck-constr" table="permissoes.usuario_permissao">
+			<expression><![CDATA[((usuaperm_valor >= 1) AND (usuaperm_valor <= 7))]]></expression>
+	</constraint>
+	<constraint name="usuaperm_codigoid" type="pk-constr" table="permissoes.usuario_permissao">
+		<columns names="usua_codigoid,perm_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="usuario_grupo">
+	<schema name="permissoes"/>
+	<role name="postgres"/>
+	<position x="1439.27" y="1460.07"/>
+	<column name="usua_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="grup_codigoid" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="usuagrup_datacadastro" not-null="true" default-value="NOW()">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="usuagrup_codigoid" type="pk-constr" table="permissoes.usuario_grupo">
+		<columns names="usua_codigoid,grup_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="usuario">
+	<schema name="permissoes"/>
+	<role name="postgres"/>
+	<position x="1431.62" y="1892.97"/>
+	<column name="id" not-null="true" sequence="permissoes.usuario_id_seq">
+		<type name="integer"/>
+	</column>
+	<column name="username" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="password" not-null="true">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="salt" not-null="true">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="ativo" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="removido" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="data_cadastro" not-null="true" default-value="now()">
+		<type name="timestamp" precision="0"/>
+	</column>
+	<constraint name="usua_codigoid" type="pk-constr" table="permissoes.usuario">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<schema name="catalogo_servico" rect-visible="true" fill-color="#e1e1e1">
+	<role name="postgres"/>
+</schema>
+
+<usertype name="tipo_aplicacao" configuration="enumeration">
+	<schema name="catalogo_servico"/>
+	<role name="postgres"/>
+	<enumeration values="CORPORATIVO,ESPECIALISTA,MIDDLEWARE"/>
+</usertype>
+
+<table name="aplicacao">
+	<schema name="catalogo_servico"/>
+	<role name="postgres"/>
+	<position x="1944.44" y="1482.22"/>
+	<column name="apli_codigoid" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="apli_nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="apli_apelido" not-null="true">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="apli_key" default-value="NULL">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="apli_ativo" not-null="true" default-value="TRUE">
+		<type name="boolean"/>
+	</column>
+	<column name="apli_removido" not-null="true" default-value="FALSE">
+		<type name="boolean"/>
+	</column>
+	<column name="apli_url" not-null="true">
+		<type name="character varying" length="500"/>
+	</column>
+	<column name="apli_tipo" not-null="true">
+		<type name="catalogo_servico.tipo_aplicacao"/>
+	</column>
+	<column name="apli_datacadastro" not-null="true" default-value="NOW()">
+		<type name="timestamp" precision="0"/>
+	</column>
+	<column name="apli_left" not-null="true" default-value="1">
+		<type name="integer"/>
+	</column>
+	<column name="apli_right" not-null="true" default-value="1">
+		<type name="integer"/>
+	</column>
+	<constraint name="apli_codigoid" type="pk-constr" table="catalogo_servico.aplicacao">
+		<columns names="apli_codigoid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="segm_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.segmento" table="pessoas.pessoa">
+	<columns names="segm_codigoid" ref-type="src-columns"/>
+	<columns names="segm_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="pess_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.pessoa" table="pessoas.documento">
+	<columns names="pess_codigoid" ref-type="src-columns"/>
+	<columns names="pess_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="tipodocu_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.tipo_documento" table="pessoas.documento">
+	<columns names="tipodocu_codigoid" ref-type="src-columns"/>
+	<columns names="tipodocu_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="pess_mandatario" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.pessoa" table="pessoas.pessoa_2_pessoa">
+	<columns names="pess_mandatario" ref-type="src-columns"/>
+	<columns names="pess_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="pess_subordinado" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.pessoa" table="pessoas.pessoa_2_pessoa">
+	<columns names="pess_subordinado" ref-type="src-columns"/>
+	<columns names="pess_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="tiporela_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.tipo_relacionamento" table="pessoas.pessoa_2_pessoa">
+	<columns names="tiporela_codigoid" ref-type="src-columns"/>
+	<columns names="tiporela_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="pess_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.pessoa" table="pessoas.endereco">
+	<columns names="pess_codigoid" ref-type="src-columns"/>
+	<columns names="pess_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="cida_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="localidades.cidade" table="pessoas.endereco">
+	<columns names="cida_codigoid" ref-type="src-columns"/>
+	<columns names="cida_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="tipoende_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pessoas.tipo_endereco" table="pessoas.endereco">
+	<columns names="tipoende_codigoid" ref-type="src-columns"/>
+	<columns names="tipoende_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="pais_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="localidades.pais" table="localidades.estado">
+	<columns names="pais_codigoid" ref-type="src-columns"/>
+	<columns names="pais_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="esta_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="localidades.estado" table="localidades.cidade">
+	<columns names="esta_codigoid" ref-type="src-columns"/>
+	<columns names="esta_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="cida_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="localidades.cidade" table="localidades.localidade">
+	<columns names="cida_codigoid" ref-type="src-columns"/>
+	<columns names="cida_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="grup_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="permissoes.grupo" table="permissoes.grupo_permissao">
+	<columns names="grup_codigoid" ref-type="src-columns"/>
+	<columns names="grup_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="perm_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="permissoes.permissao" table="permissoes.grupo_permissao">
+	<columns names="perm_codigoid" ref-type="src-columns"/>
+	<columns names="perm_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="usua_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="permissoes.usuario" table="permissoes.usuario_permissao">
+	<columns names="usua_codigoid" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="perm_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="permissoes.permissao" table="permissoes.usuario_permissao">
+	<columns names="perm_codigoid" ref-type="src-columns"/>
+	<columns names="perm_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="usua_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="permissoes.usuario" table="permissoes.usuario_grupo">
+	<columns names="usua_codigoid" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="grup_codigoid" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="permissoes.grupo" table="permissoes.usuario_grupo">
+	<columns names="grup_codigoid" ref-type="src-columns"/>
+	<columns names="grup_codigoid" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_pessoa_segmento" type="relfk"
+	 src-table="pessoas.pessoa"
+	 dst-table="pessoas.segmento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_documento_pessoa" type="relfk"
+	 src-table="pessoas.documento"
+	 dst-table="pessoas.pessoa"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_documento_tipo_documento" type="relfk"
+	 src-table="pessoas.documento"
+	 dst-table="pessoas.tipo_documento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_pessoa_2_pessoa_pessoa" type="relfk"
+	 src-table="pessoas.pessoa_2_pessoa"
+	 dst-table="pessoas.pessoa"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_pessoa_2_pessoa_tipo_relacionamento" type="relfk"
+	 src-table="pessoas.pessoa_2_pessoa"
+	 dst-table="pessoas.tipo_relacionamento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_endereco_pessoa" type="relfk"
+	 src-table="pessoas.endereco"
+	 dst-table="pessoas.pessoa"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_endereco_cidade" type="relfk"
+	 src-table="pessoas.endereco"
+	 dst-table="localidades.cidade"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_endereco_tipo_endereco" type="relfk"
+	 src-table="pessoas.endereco"
+	 dst-table="pessoas.tipo_endereco"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_estado_pais" type="relfk"
+	 src-table="localidades.estado"
+	 dst-table="localidades.pais"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_cidade_estado" type="relfk"
+	 src-table="localidades.cidade"
+	 dst-table="localidades.estado"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_localidade_cidade" type="relfk"
+	 src-table="localidades.localidade"
+	 dst-table="localidades.cidade"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_grupo_permissao_grupo" type="relfk"
+	 src-table="permissoes.grupo_permissao"
+	 dst-table="permissoes.grupo"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_grupo_permissao_permissao" type="relfk"
+	 src-table="permissoes.grupo_permissao"
+	 dst-table="permissoes.permissao"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_usuario_permissao_usuario" type="relfk"
+	 src-table="permissoes.usuario_permissao"
+	 dst-table="permissoes.usuario"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_usuario_permissao_permissao" type="relfk"
+	 src-table="permissoes.usuario_permissao"
+	 dst-table="permissoes.permissao"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_usuario_grupo_usuario" type="relfk"
+	 src-table="permissoes.usuario_grupo"
+	 dst-table="permissoes.usuario"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_usuario_grupo_grupo" type="relfk"
+	 src-table="permissoes.usuario_grupo"
+	 dst-table="permissoes.grupo"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

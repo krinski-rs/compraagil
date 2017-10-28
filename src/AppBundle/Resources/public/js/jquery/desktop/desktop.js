@@ -173,6 +173,7 @@ var JQD = (function($, window, document, undefined) {
           if ($(x).is(':hidden')) {
             $(x).remove().appendTo('#dock');
             $(x).show('fast');
+            $(y).trigger('afterShow');
           }
 
           // Bring window to front.

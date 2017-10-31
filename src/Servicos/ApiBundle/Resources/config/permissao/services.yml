@@ -11,4 +11,8 @@ services:
         class: Servicos\ApiBundle\Service\Permissoes\Usuarios\Criar
         lazy: true
         arguments: ["@doctrine", "@security.password_encoder"]
+    servicos_api.permissoes.usuarios.listar:
+        class: Servicos\ApiBundle\Service\Permissoes\Usuarios\Listar
+        lazy: true
+        arguments: ["@doctrine"]
         

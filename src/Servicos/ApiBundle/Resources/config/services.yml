@@ -1,4 +1,4 @@
 imports:
-    - { resource: /var/www/compraagil.local/src/Servicos/ApiBundle/Resources/config/permissao/services.yml }
-    - { resource: /var/www/compraagil.local/src/Servicos/ApiBundle/Resources/config/catalogo_servico/services.yml }
+    - { resource: /var/www/vogel.local/src/Servicos/ApiBundle/Resources/config/permissao/services.yml }
+    - { resource: /var/www/vogel.local/src/Servicos/ApiBundle/Resources/config/catalogo_servico/services.yml }
     

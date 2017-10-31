@@ -3,6 +3,8 @@
  */
 $(document).ready(function() {
     //$('div.window').
+    
+    
 	$(".window").bind('afterShow',function(){
 	    var $this = $(this);
 	    

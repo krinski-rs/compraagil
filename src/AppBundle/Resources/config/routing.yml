@@ -23,3 +23,7 @@ app_usuarios:
     path:     /usuarios/view
     defaults: { _controller: "AppBundle:Permissoes/Usuarios/Default:default" }
     
+app_localidades:
+    path:     /localidades
+    defaults: { _controller: "AppBundle:Localidades/Default:index" }
+    

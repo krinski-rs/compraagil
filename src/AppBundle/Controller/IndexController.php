@@ -32,6 +32,13 @@ class IndexController extends Controller
                             'href' => '#icon_dock_drive',
                             'src' => '/bundles/app/css/jquery/desktop/images/icons/icon_32_drive.png',
                             'text' => 'Hard Drive'
+                        ],
+                        [
+                            'left' => 20,
+                            'top' => 180,
+                            'href' => '#icon_dock_map',
+                            'src' => '/bundles/app/css/jquery/desktop/images/icons/icon_32_map-with-placeholder.png',
+                            'text' => 'Localizações'
                         ]
                     ],
                     'windows' => [
@@ -85,8 +92,8 @@ class IndexController extends Controller
                 ],
                 'bar_top' => [
                     [
-                        'href' => '#',
-                        'text' => 'Market Sales Domain',//Domínio de vendas no mercado
+                        'href' => '/localidades',
+                        'text' => 'Localidades',//Domínio de vendas no mercado
                         'ul'=> []
                     ],
                     [

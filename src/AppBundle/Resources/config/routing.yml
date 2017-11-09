@@ -27,3 +27,7 @@ app_localidades:
     path:     /localidades
     defaults: { _controller: "AppBundle:Localidades/Default:index" }
     
+app_home:
+    path:     /
+    defaults: { _controller: "AppBundle:Index:welcome" }
+    

@@ -1,0 +1,4 @@
+servicos_api_localizacoes_viabilidade:
+    type:     rest
+    resource: Servicos\ApiBundle\Controller\Localizacoes\ViabilidadesController
+    name_prefix:  viab_

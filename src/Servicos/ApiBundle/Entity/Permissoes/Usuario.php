@@ -373,4 +373,3 @@ class Usuario implements UserInterface
         return null;
     }
 }
-

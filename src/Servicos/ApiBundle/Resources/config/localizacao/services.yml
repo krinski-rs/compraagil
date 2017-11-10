@@ -1,0 +1,5 @@
+services:
+    servicos_api.localizacoes.viabilidades.criar:
+        class: Servicos\ApiBundle\Service\Localizacoes\Viabilidades\Criar
+        lazy: true
+        arguments: ["@doctrine"]

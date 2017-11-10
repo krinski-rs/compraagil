@@ -1,0 +1,71 @@
+Servicos\ApiBundle\Entity\Pessoas\Pessoa:
+    type: entity
+    table: pessoas.pessoa
+    indexes:
+        IDX_67A8D0B077E13A20:
+            columns:
+                - segm_codigoid
+    id:
+        pessCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: pess_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        pessTipo:
+            type: tipo_pessoa
+            nullable: false
+            column: pess_tipo
+        pessSexo:
+            type: sexo_pessoa
+            nullable: false
+            column: pess_sexo
+        pessNacionalidade:
+            type: nacionalidade_pessoa
+            nullable: false
+            column: pess_nacionalidade
+        pessNome:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: pess_nome
+        pessDataaniversario:
+            type: date
+            nullable: false
+            column: pess_dataaniversario
+        pessAtivo:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+            column: pess_ativo
+        pessRemovido:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+            column: pess_removido
+        pessDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: pess_datacadastro
+    manyToOne:
+        segmCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Pessoas\Segmento
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                segm_codigoid:
+                    referencedColumnName: segm_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

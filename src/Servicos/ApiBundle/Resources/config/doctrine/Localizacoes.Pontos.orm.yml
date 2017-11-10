@@ -1,0 +1,61 @@
+Servicos\ApiBundle\Entity\Localizacoes\Pontos:
+    type: entity
+    table: localizacoes.pontos
+    indexes:
+        IDX_10E8DCA9767A557C:
+            columns:
+                - viab_codigoid
+    id:
+        pontCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: pont_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        pontPoint:
+            type: point
+            nullable: false
+            requireSQLConversion: true
+            column: pont_point
+        pontDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: pont_datacadastro
+    manyToOne:
+        viabilidadesDataCenter:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\ViabilidadesDataCenter
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: pontos
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+        viabilidadesSwitch:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\ViabilidadesSwitch
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: pontos
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+        viabilidadeSpliter:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\ViabilidadeSpliter
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: pontos
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

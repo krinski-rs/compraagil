@@ -1,0 +1,100 @@
+Servicos\ApiBundle\Entity\Pessoas\Endereco:
+    type: entity
+    table: pessoas.endereco
+    indexes:
+        IDX_D24751BCED6350FC:
+            columns:
+                - pess_codigoid
+        IDX_D24751BC453257F4:
+            columns:
+                - cida_codigoid
+        IDX_D24751BC71ACFD75:
+            columns:
+                - tipoende_codigoid
+    id:
+        endeCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: ende_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        endeNumero:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: ende_numero
+        endeLogradouro:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: ende_logradouro
+        endeComplemento:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ende_complemento
+        endeAtivo:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+            column: ende_ativo
+        endeRemovido:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+            column: ende_removido
+        endePonto:
+            type: point
+            nullable: true
+            requireSQLConversion: true
+            column: ende_ponto
+        endeDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: ende_datacadastro
+    manyToOne:
+        pessCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Pessoas\Pessoa
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                pess_codigoid:
+                    referencedColumnName: pess_codigoid
+            orphanRemoval: false
+        cidaCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Localidades\Cidade
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cida_codigoid:
+                    referencedColumnName: cida_codigoid
+            orphanRemoval: false
+        tipoendeCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Pessoas\TipoEndereco
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tipoende_codigoid:
+                    referencedColumnName: tipoende_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

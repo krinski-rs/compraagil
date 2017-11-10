@@ -341,4 +341,3 @@ class Aplicacao
         return $this->apliRight;
     }
 }
-

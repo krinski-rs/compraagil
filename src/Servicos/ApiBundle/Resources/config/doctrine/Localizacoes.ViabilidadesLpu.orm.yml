@@ -1,0 +1,11 @@
+Servicos\ApiBundle\Entity\Localizacoes\ViabilidadesLpu:
+    type: entity
+    oneToMany:
+        poligonos:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\Poligonos
+            cascade:
+                - persist
+                - merge
+            fetch: LAZY
+            mappedBy: viabilidadesLpu
+    lifecycleCallbacks: {  }

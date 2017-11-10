@@ -1,0 +1,41 @@
+Servicos\ApiBundle\Entity\Localizacoes\Caixas:
+    type: entity
+    table: localizacoes.caixas
+    indexes:
+        IDX_B4116D20767A557C:
+            columns:
+                - viab_codigoid
+    id:
+        caixCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: caix_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        caixBox:
+            type: box
+            nullable: false
+            requireSQLConversion: true
+            column: caix_box
+        caixDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: caix_datacadastro
+    manyToOne:
+        viabCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\Viabilidades
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

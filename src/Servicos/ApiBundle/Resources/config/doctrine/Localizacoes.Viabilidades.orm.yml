@@ -1,0 +1,64 @@
+Servicos\ApiBundle\Entity\Localizacoes\Viabilidades:
+    type: entity
+    table: localizacoes.viabilidades
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: viabTipo
+        type: tipo_ponto
+    discriminatorMap:
+       CAIXA_EMENDA: ViabilidadesCaixaEmenda
+       SPLITTER: ViabilidadeSpliter
+       SWITCH: ViabilidadesSwitch
+       CIRCUITO: ViabilidadesCircuito
+       POP: ViabilidadesPop
+       DATA_CENTE: ViabilidadesDataCenter
+       LPU: ViabilidadesLpu
+    id:
+        viabCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: viab_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        viabNome:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: viab_nome
+        viabCor:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+                default: '#FFFFFF'
+            column: viab_cor
+        viabTipo:
+            type: tipo_ponto
+            nullable: false
+            column: viab_tipo
+        viabAtivo:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+            column: viab_ativo
+        viabRemovido:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+            column: viab_removido
+        viabDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: viab_datacadastro
+    lifecycleCallbacks: {  }

@@ -182,4 +182,3 @@ class Pessoa2Pessoa
         return $this->tiporelaCodigoid;
     }
 }
-

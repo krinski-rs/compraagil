@@ -1,0 +1,61 @@
+Servicos\ApiBundle\Entity\Localizacoes\Circulos:
+    type: entity
+    table: localizacoes.circulos
+    indexes:
+        IDX_944F3807767A557C:
+            columns:
+                - viab_codigoid
+    id:
+        circCodigodi:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: circ_codigodi
+            generator:
+                strategy: SEQUENCE
+    fields:
+        circCircle:
+            type: circle
+            nullable: false
+            requireSQLConversion: true
+            column: circ_circle
+        circDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: circ_datacadastro
+    manyToOne:
+        viabilidadesPop:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\ViabilidadesPop
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: circulos
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+        viabilidadesCaixaEmenda:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\ViabilidadesCaixaEmenda
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: circulos
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+        viabilidadesCircuito:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\ViabilidadesCircuito
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: circulos
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

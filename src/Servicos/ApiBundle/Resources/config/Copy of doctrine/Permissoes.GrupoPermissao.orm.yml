@@ -1,0 +1,41 @@
+Servicos\ApiBundle\Entity\Permissoes\GrupoPermissao:
+    type: entity
+    table: permissoes.grupo_permissao
+    id:
+        permCodigoid:
+            associationKey: true
+        grupCodigoid:
+            associationKey: true
+    fields:
+        gruppermValor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: grupperm_valor
+        gruppermDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: grupperm_datacadastro
+    manyToOne:
+        permCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Permissoes\Permissao
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: grupoPermissao
+            joinColumn:
+                name: perm_codigoid
+                referencedColumnName: perm_codigoid
+        grupCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Permissoes\Grupo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: grupoPermissao
+            joinColumn:
+                name: grup_codigoid
+                referencedColumnName: grup_codigoid
+    lifecycleCallbacks: {  }

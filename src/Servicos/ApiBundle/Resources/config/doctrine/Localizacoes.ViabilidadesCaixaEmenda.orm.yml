@@ -1,0 +1,11 @@
+Servicos\ApiBundle\Entity\Localizacoes\ViabilidadesCaixaEmenda:
+    type: entity
+    oneToMany:
+        circulos:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\Circulos
+            cascade:
+                - persist
+                - merge
+            fetch: LAZY
+            mappedBy: viabilidadesCaixaEmenda
+    lifecycleCallbacks: {  }

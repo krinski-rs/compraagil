@@ -1,0 +1,11 @@
+Servicos\ApiBundle\Entity\Localizacoes\ViabilidadeSpliter:
+    type: entity
+    oneToMany:
+        pontos:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\Pontos
+            cascade:
+                - persist
+                - merge
+            fetch: LAZY
+            mappedBy: viabilidadeSpliter
+    lifecycleCallbacks: {  }

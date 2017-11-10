@@ -197,4 +197,3 @@ class TipoDocumento
         return $this->tipodocuDatacadastro;
     }
 }
-

@@ -1,0 +1,82 @@
+Servicos\ApiBundle\Entity\CatalogoServico\Aplicacao:
+    type: entity
+    entityListeners:
+        Servicos\ApiBundle\Events\CatalogoServico\AplicacaoListener:
+            postPersist: [postPersist]
+    table: catalogo_servico.aplicacao
+    id:
+        apliCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: apli_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        apliNome:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: apli_nome
+        apliApelido:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: apli_apelido
+        apliKey:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: apli_key
+        apliAtivo:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+            column: apli_ativo
+        apliRemovido:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+            column: apli_removido
+        apliUrl:
+            type: string
+            nullable: false
+            length: 500
+            options:
+                fixed: false
+            column: apli_url
+        apliTipo:
+            type: tipo_aplicacao
+            nullable: false
+            column: apli_tipo
+        apliDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: apli_datacadastro
+        apliLeft:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+            column: apli_left
+        apliRight:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+            column: apli_right
+    lifecycleCallbacks: {  }

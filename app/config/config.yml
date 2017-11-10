@@ -50,7 +50,12 @@ doctrine:
             nacionalidade_pessoa: 'Servicos\ApiBundle\DataBase\Types\Postgres\Enum\Types\NacionalidadePessoa'
             point: 'Servicos\ApiBundle\DataBase\Types\Postgres\Geometry\DBAL\PointType'
             polygon: 'Servicos\ApiBundle\DataBase\Types\Postgres\Geometry\DBAL\PolygonType'
+            path: 'Servicos\ApiBundle\DataBase\Types\Postgres\Geometry\DBAL\PathType'
+            circle: 'Servicos\ApiBundle\DataBase\Types\Postgres\Geometry\DBAL\CircleType'
+            lseg: 'Servicos\ApiBundle\DataBase\Types\Postgres\Geometry\DBAL\LsegType'
+            box: 'Servicos\ApiBundle\DataBase\Types\Postgres\Geometry\DBAL\BoxType'
             tipo_aplicacao: 'Servicos\ApiBundle\DataBase\Types\Postgres\Enum\Types\TipoAplicacao'
+            tipo_ponto: 'Servicos\ApiBundle\DataBase\Types\Postgres\Enum\Types\TipoPonto'
         connections:
             default:
                 driver:   pdo_pgsql
@@ -66,7 +71,12 @@ doctrine:
                     nacionalidade_pessoa: nacionalidade_pessoa
                     point: point
                     polygon: polygon
+                    path: path
+                    circle: circle
+                    lseg: lseg
+                    box: box
                     tipo_aplicacao: tipo_aplicacao
+                    tipo_ponto: tipo_ponto
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'

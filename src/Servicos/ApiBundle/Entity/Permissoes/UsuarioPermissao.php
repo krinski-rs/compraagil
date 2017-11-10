@@ -124,4 +124,3 @@ class UsuarioPermissao
         return $this->usuaCodigoid;
     }
 }
-

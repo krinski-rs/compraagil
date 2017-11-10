@@ -1,0 +1,41 @@
+Servicos\ApiBundle\Entity\Localizacoes\Linhas:
+    type: entity
+    table: localizacoes.linhas
+    indexes:
+        IDX_60039C73767A557C:
+            columns:
+                - viab_codigoid
+    id:
+        linhCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: linh_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        linhLinha:
+            type: lseg
+            nullable: false
+            requireSQLConversion: true
+            column: linh_linha
+        linhDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: linh_datacadastro
+    manyToOne:
+        viabCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\Viabilidades
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

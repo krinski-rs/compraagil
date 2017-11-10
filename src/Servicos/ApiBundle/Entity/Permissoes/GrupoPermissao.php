@@ -124,4 +124,3 @@ class GrupoPermissao
         return $this->grupCodigoid;
     }
 }
-

@@ -6,4 +6,8 @@ servicos_api_catalogo_servicos:
     type:     rest
     resource: "@ServicosApiBundle/Resources/config/catalogo_servico/routing.yml"
     prefix: /catalogo
-    
+servicos_api_localizacoes:
+    type:     rest
+    resource: "@ServicosApiBundle/Resources/config/localizacao/routing.yml"
+    prefix: /localizacao
+   

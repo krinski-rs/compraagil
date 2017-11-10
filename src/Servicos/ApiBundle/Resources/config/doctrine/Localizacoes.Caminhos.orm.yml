@@ -1,0 +1,41 @@
+Servicos\ApiBundle\Entity\Localizacoes\Caminhos:
+    type: entity
+    table: localizacoes.caminhos
+    indexes:
+        IDX_810ED3C8767A557C:
+            columns:
+                - viab_codigoid
+    id:
+        camiCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: cami_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        camiPath:
+            type: path
+            nullable: false
+            requireSQLConversion: true
+            column: cami_path
+        camiDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: cami_datacadastro
+    manyToOne:
+        viabCodigoid:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\Viabilidades
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

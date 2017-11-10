@@ -1,4 +1,5 @@
 imports:
     - { resource: /var/www/vogel.local/src/Servicos/ApiBundle/Resources/config/permissao/services.yml }
     - { resource: /var/www/vogel.local/src/Servicos/ApiBundle/Resources/config/catalogo_servico/services.yml }
+    - { resource: /var/www/vogel.local/src/Servicos/ApiBundle/Resources/config/localizacao/services.yml }
     

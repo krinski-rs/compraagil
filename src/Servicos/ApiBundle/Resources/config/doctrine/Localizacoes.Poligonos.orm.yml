@@ -1,0 +1,41 @@
+Servicos\ApiBundle\Entity\Localizacoes\Poligonos:
+    type: entity
+    table: localizacoes.poligonos
+    indexes:
+        IDX_923A216B767A557C:
+            columns:
+                - viab_codigoid
+    id:
+        poliCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: poli_codigoid
+            generator:
+                strategy: SEQUENCE
+    fields:
+        poliPolygon:
+            type: polygon
+            nullable: false
+            requireSQLConversion: true
+            column: poli_polygon
+        poliDatacadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: poli_datacadastro
+    manyToOne:
+        viabilidadesLpu:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\viabilidadesLpu
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: poligonos
+            joinColumns:
+                viab_codigoid:
+                    referencedColumnName: viab_codigoid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

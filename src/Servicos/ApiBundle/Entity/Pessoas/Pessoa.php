@@ -284,4 +284,3 @@ class Pessoa
         return $this->segmCodigoid;
     }
 }
-

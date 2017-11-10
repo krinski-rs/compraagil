@@ -1,0 +1,11 @@
+Servicos\ApiBundle\Entity\Localizacoes\ViabilidadesSwitch:
+    type: entity
+    oneToMany:
+        pontos:
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\Pontos
+            cascade:
+                - persist
+                - merge
+            fetch: LAZY
+            mappedBy: viabilidadesSwitch
+    lifecycleCallbacks: {  }

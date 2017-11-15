@@ -5,7 +5,7 @@ namespace Servicos\ApiBundle\Entity\Localizacoes;
 /**
  * ViabilidadesPop
  */
-class ViabilidadesPop
+class ViabilidadesPop extends Viabilidades
 {
     /**
      * @var \Doctrine\Common\Collections\Collection

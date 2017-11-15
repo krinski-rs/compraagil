@@ -5,7 +5,7 @@ namespace Servicos\ApiBundle\Entity\Localizacoes;
 /**
  * Viabilidades
  */
-class Viabilidades
+abstract class Viabilidades
 {
     /**
      * @var integer

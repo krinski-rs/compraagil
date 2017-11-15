@@ -5,12 +5,14 @@ namespace Servicos\ApiBundle\Entity\Localizacoes;
 /**
  * ViabilidadesCaixaEmenda
  */
-class ViabilidadesCaixaEmenda
+class ViabilidadesCaixaEmenda extends Viabilidades
 {
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $circulos;
+    
+    //private $viabTipo = 'CAIXA_EMENDA';
 
     /**
      * Constructor

@@ -5,7 +5,7 @@ namespace Servicos\ApiBundle\Entity\Localizacoes;
 /**
  * ViabilidadesCircuito
  */
-class ViabilidadesCircuito
+class ViabilidadesCircuito extends Viabilidades
 {
     /**
      * @var \Doctrine\Common\Collections\Collection

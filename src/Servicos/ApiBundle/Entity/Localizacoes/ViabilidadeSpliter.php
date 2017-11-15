@@ -5,7 +5,7 @@ namespace Servicos\ApiBundle\Entity\Localizacoes;
 /**
  * ViabilidadeSpliter
  */
-class ViabilidadeSpliter
+class ViabilidadeSpliter extends Viabilidades
 {
     /**
      * @var \Doctrine\Common\Collections\Collection

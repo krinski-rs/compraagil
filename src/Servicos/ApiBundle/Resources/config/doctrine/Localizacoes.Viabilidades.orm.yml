@@ -3,7 +3,7 @@ Servicos\ApiBundle\Entity\Localizacoes\Viabilidades:
     table: localizacoes.viabilidades
     inheritanceType: SINGLE_TABLE
     discriminatorColumn:
-        name: viabTipo
+        name: viab_tipo
         type: tipo_ponto
     discriminatorMap:
        CAIXA_EMENDA: ViabilidadesCaixaEmenda
@@ -39,10 +39,10 @@ Servicos\ApiBundle\Entity\Localizacoes\Viabilidades:
                 fixed: false
                 default: '#FFFFFF'
             column: viab_cor
-        viabTipo:
-            type: tipo_ponto
-            nullable: false
-            column: viab_tipo
+#        viabTipo:
+#            type: tipo_ponto
+#            nullable: false
+#            column: viab_tipo
         viabAtivo:
             type: boolean
             nullable: false

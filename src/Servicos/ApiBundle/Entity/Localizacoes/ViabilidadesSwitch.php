@@ -5,7 +5,7 @@ namespace Servicos\ApiBundle\Entity\Localizacoes;
 /**
  * ViabilidadesSwitch
  */
-class ViabilidadesSwitch
+class ViabilidadesSwitch extends Viabilidades
 {
     /**
      * @var \Doctrine\Common\Collections\Collection

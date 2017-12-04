@@ -29,7 +29,7 @@ Servicos\ApiBundle\Entity\Localizacoes\Poligonos:
             column: poli_datacadastro
     manyToOne:
         viabilidadesLpu:
-            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\viabilidadesLpu
+            targetEntity: Servicos\ApiBundle\Entity\Localizacoes\ViabilidadesLpu
             cascade: {  }
             fetch: LAZY
             mappedBy: null

@@ -22,7 +22,7 @@ class IndexController extends Controller
                         [
                             'left' => 20,
                             'top' => 20,
-                            'href' => '#icon_dock_computer',
+                            'href' => '#icon_dock_permissao',
                             'src' => '/bundles/app/css/jquery/desktop/images/icons/icon_32_addgroup.png',
                             'text' => 'Permissão'
                         ],
@@ -38,21 +38,21 @@ class IndexController extends Controller
                             'top' => 180,
                             'href' => '#icon_dock_map',
                             'src' => '/bundles/app/css/jquery/desktop/images/icons/icon_32_map-with-placeholder.png',
-                            'text' => 'Localizações'
+                            'text' => 'Localização'
                         ]
                     ],
                     'windows' => [
                         [
-                            'id' => 'window_computer',
+                            'id' => 'window_permissao',
                             'window_inner' => [
                                 'text' => 'Build: TK421',
                                 'window_top' => [
                                     'float_left'=> [
-                                        'text' => 'Computer 11',
+                                        'text' => 'Permissão',
                                         'image' => '<img src="/bundles/app/css/jquery/desktop/images/icons/icon_16_addgroup.png" />'
                                     ],
                                     'float_right'=> [
-                                        'href' => 'icon_dock_computer'
+                                        'href' => 'icon_dock_permissao'
                                     ],
                                 ],
                                 'window_content' => []
@@ -73,21 +73,43 @@ class IndexController extends Controller
                                 ],
                                 'window_content' => []
                             ]
+                        ],
+                        [
+                            'id' => 'window_map',
+                            'window_inner' => [
+                                'text' => 'Free: 80.9 GB',
+                                'window_top' => [
+                                    'float_left'=> [
+                                        'text' => 'Localização',
+                                        'image' => '<img src="/bundles/app/css/jquery/desktop/images/icons/icon_16_map-with-placeholder.png" />'
+                                    ],
+                                    'float_right'=> [
+                                        'href' => 'icon_dock_map'
+                                    ],
+                                ],
+                                'window_content' => []
+                            ]
                         ]
                     ]
                 ],
                 'dock' => [
                     [
-                        'id' => 'icon_dock_computer',
-                        'href' => '#window_computer',
+                        'id' => 'icon_dock_permissao',
+                        'href' => '#window_permissao',
                         'src' => '/bundles/app/css/jquery/desktop/images/icons/icon_22_addgroup.png',
-                        'text' => 'Computer'
+                        'text' => 'Permissão'
                     ],
                     [
                         'id' => 'icon_dock_drive',
                         'href' => '#window_drive',
                         'src' => '/bundles/app/css/jquery/desktop/images/icons/icon_22_drive.png',
                         'text' => 'Hard Drive'
+                    ],
+                    [
+                        'id' => 'icon_dock_map',
+                        'href' => '#window_map',
+                        'src' => '/bundles/app/css/jquery/desktop/images/icons/icon_22_map-with-placeholder.png',
+                        'text' => 'Localização'
                     ]
                 ],
                 'bar_top' => [
